@@ -83,170 +83,441 @@
 
 </header>
 
-<section class="hero">
+<div class="page-top">
 
-<div class="hero-content">
-
-<p class="hero-label">
-YOGIE CLIENT HUB
-</p>
-
-<h1>
-Manage Clients,<br>
-Projects & Revenue
-</h1>
-
-<p class="hero-description">
-Private workspace for managing website orders, payments, files, revisions, clients and business growth.
-</p>
-
+<div class="page-title-group">
+<span class="page-label">CLIENT MANAGEMENT</span>
+<h1>Clients</h1>
+<p>Manage all website clients, projects, payments and communication in one place.</p>
 </div>
 
-<div class="hero-widget">
+<div class="page-actions">
 
-<div class="widget-card">
-<span>Current Date</span>
-<h3 id="live-date">Loading...</h3>
-</div>
+<button class="header-btn">
+<i class="fa-solid fa-download"></i>
+Export
+</button>
 
-<div class="widget-card">
-<span>Current Time</span>
-<h2 id="live-clock">00:00:00</h2>
+<button class="header-btn primary">
+<i class="fa-solid fa-plus"></i>
+Add Client
+</button>
+
 </div>
 
 </div>
 
-</section>
+<section class="client-stats">
 
-<section class="stats-grid">
-
-<div class="stat-card">
-<span>Total Projects</span>
-<h2 id="dashboard-total-projects">24</h2>
-</div>
-
-<div class="stat-card">
+<div class="client-stat-card">
 <span>Total Clients</span>
-<h2 id="dashboard-total-clients">0</h2>
+<h2 data-counter="18">18</h2>
+<p>Registered clients</p>
 </div>
 
-<div class="stat-card">
-<span>Total Revenue (IDR)</span>
-<h2 id="dashboard-revenue">0</h2>
+<div class="client-stat-card">
+<span>Active Clients</span>
+<h2 data-counter="12">12</h2>
+<p>Currently running projects</p>
 </div>
 
-<div class="stat-card">
-<span>Active Projects</span>
-<h2 id="dashboard-active-projects">0</h2>
+<div class="client-stat-card">
+<span>Total Revenue</span>
+<h2 id="client-revenue">32.0M</h2>
+<p>Lifetime revenue</p>
 </div>
 
-<div class="stat-card">
-<span>Pending</span>
-<h2 id="dashboard-pending">0</h2>
-</div>
-
-<div class="stat-card">
+<div class="client-stat-card">
 <span>Completed</span>
-<h2 id="dashboard-completed">0</h2>
+<h2 data-counter="21">21</h2>
+<p>Finished projects</p>
 </div>
 
 </section>
 
-<section class="dashboard-grid">
+<section class="client-toolbar">
 
-<div class="revenue-card">
-
-<div class="section-header">
-<h2>Revenue Overview</h2>
+<div class="client-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" placeholder="Search clients...">
 </div>
 
-<div class="chart-area">
-<div class="chart-placeholder">
-Revenue Chart
-</div>
-</div>
+<div class="toolbar-right">
 
-</div>
+<select class="filter-select">
+<option>All Status</option>
+<option>Active</option>
+<option>Pending</option>
+<option>Completed</option>
+</select>
 
-<div class="activity-card">
-
-<div class="section-header">
-<h2>Recent Activity</h2>
-</div>
-
-<ul class="activity-list">
-<li><span class="activity-dot"></span>New client inquiry received</li>
-<li><span class="activity-dot"></span>Payment confirmed from HireFlow project</li>
-<li><span class="activity-dot"></span>YOGIEZ Store marked as completed</li>
-<li><span class="activity-dot"></span>Revision request uploaded</li>
-<li><span class="activity-dot"></span>Domain renewal reminder created</li>
-</ul>
+<select class="filter-select">
+<option>All Packages</option>
+<option>Landing Page</option>
+<option>Business Website</option>
+<option>E-Commerce</option>
+<option>Custom System</option>
+</select>
 
 </div>
 
 </section>
 
-<section class="projects-section">
+<section class="clients-table-wrapper">
 
-<div class="section-header">
-<h2>Recent Projects</h2>
-<a href="#" class="view-all">View All</a>
+<div class="table-header">
+
+<h2>Client Database</h2>
+
+<div class="table-actions">
+
+<button class="table-action-btn">
+<i class="fa-solid fa-filter"></i>
+Filter
+</button>
+
+<button class="table-action-btn">
+<i class="fa-solid fa-rotate"></i>
+Refresh
+</button>
+
 </div>
 
-<div class="table-wrapper">
+</div>
 
-<table class="projects-table">
+<div class="clients-table-container">
+
+<table class="clients-table">
 
 <thead>
+
 <tr>
-<th>Project</th>
 <th>Client</th>
+<th>Package</th>
 <th>Status</th>
-<th>Progress</th>
-<th>Budget</th>
+<th>Revenue</th>
+<th>Created</th>
+<th>Actions</th>
 </tr>
+
 </thead>
 
 <tbody>
 
 <tr>
-<td>HireFlow</td>
-<td>Demo Client</td>
-<td><span class="status development">Development</span></td>
-<td>80%</td>
-<td>Rp2.500.000</td>
+
+<td>
+
+<div class="client-info">
+
+<div class="client-avatar">Y</div>
+
+<div>
+<h4>Yogie Store</h4>
+<p>client@yogiestore.com</p>
+</div>
+
+</div>
+
+</td>
+
+<td>Business Website</td>
+
+<td>
+<span class="status-badge active">
+Active
+</span>
+</td>
+
+<td>Rp 5.000.000</td>
+
+<td>08 Jun 2026</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button class="mini-btn">
+View
+</button>
+
+<button class="mini-btn">
+Edit
+</button>
+
+</div>
+
+</td>
+
 </tr>
 
 <tr>
-<td>YOGIEZ Store</td>
-<td>Demo Client</td>
-<td><span class="status completed">Completed</span></td>
-<td>100%</td>
-<td>Rp3.000.000</td>
+
+<td>
+
+<div class="client-info">
+
+<div class="client-avatar">A</div>
+
+<div>
+<h4>Arkana Digital</h4>
+<p>hello@arkana.id</p>
+</div>
+
+</div>
+
+</td>
+
+<td>Landing Page</td>
+
+<td>
+<span class="status-badge pending">
+Pending
+</span>
+</td>
+
+<td>Rp 1.500.000</td>
+
+<td>06 Jun 2026</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button class="mini-btn">
+View
+</button>
+
+<button class="mini-btn">
+Edit
+</button>
+
+</div>
+
+</td>
+
 </tr>
 
 <tr>
-<td>School Website</td>
-<td>Demo Client</td>
-<td><span class="status revision">Revision</span></td>
-<td>95%</td>
-<td>Rp4.500.000</td>
+
+<td>
+
+<div class="client-info">
+
+<div class="client-avatar">P</div>
+
+<div>
+<h4>PT Prima Jaya</h4>
+<p>admin@primajaya.co.id</p>
+</div>
+
+</div>
+
+</td>
+
+<td>E-Commerce</td>
+
+<td>
+<span class="status-badge completed">
+Completed
+</span>
+</td>
+
+<td>Rp 8.500.000</td>
+
+<td>03 Jun 2026</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button class="mini-btn">
+View
+</button>
+
+<button class="mini-btn">
+Edit
+</button>
+
+</div>
+
+</td>
+
 </tr>
 
 <tr>
-<td>Portfolio Website</td>
-<td>Demo Client</td>
-<td><span class="status pending">Pending</span></td>
-<td>20%</td>
-<td>Rp1.500.000</td>
+
+<td>
+<div class="client-info">
+<div class="client-avatar">M</div>
+<div>
+<h4>Metro Creative</h4>
+<p>contact@metrocreative.id</p>
+</div>
+</div>
+</td>
+
+<td>Custom System</td>
+
+<td>
+<span class="status-badge active">
+Active
+</span>
+</td>
+
+<td>Rp 12.000.000</td>
+
+<td>01 Jun 2026</td>
+
+<td>
+
+<div class="table-buttons">
+<button class="mini-btn">View</button>
+<button class="mini-btn">Edit</button>
+</div>
+
+</td>
+
 </tr>
 
 <tr>
-<td>Booking System</td>
-<td>Demo Client</td>
-<td><span class="status development">Development</span></td>
-<td>60%</td>
-<td>Rp7.000.000</td>
+
+<td>
+<div class="client-info">
+<div class="client-avatar">S</div>
+<div>
+<h4>Skyline Studio</h4>
+<p>team@skyline.com</p>
+</div>
+</div>
+</td>
+
+<td>Landing Page</td>
+
+<td>
+<span class="status-badge completed">
+Completed
+</span>
+</td>
+
+<td>Rp 2.500.000</td>
+
+<td>28 May 2026</td>
+
+<td>
+
+<div class="table-buttons">
+<button class="mini-btn">View</button>
+<button class="mini-btn">Edit</button>
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="client-info">
+<div class="client-avatar">N</div>
+<div>
+<h4>Nusantara Tech</h4>
+<p>support@nusantaratech.id</p>
+</div>
+</div>
+</td>
+
+<td>Business Website</td>
+
+<td>
+<span class="status-badge active">
+Active
+</span>
+</td>
+
+<td>Rp 4.750.000</td>
+
+<td>25 May 2026</td>
+
+<td>
+
+<div class="table-buttons">
+<button class="mini-btn">View</button>
+<button class="mini-btn">Edit</button>
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="client-info">
+<div class="client-avatar">D</div>
+<div>
+<h4>Digital Growth</h4>
+<p>admin@digitalgrowth.id</p>
+</div>
+</div>
+</td>
+
+<td>E-Commerce</td>
+
+<td>
+<span class="status-badge pending">
+Pending
+</span>
+</td>
+
+<td>Rp 6.500.000</td>
+
+<td>20 May 2026</td>
+
+<td>
+
+<div class="table-buttons">
+<button class="mini-btn">View</button>
+<button class="mini-btn">Edit</button>
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="client-info">
+<div class="client-avatar">L</div>
+<div>
+<h4>Luxora Property</h4>
+<p>office@luxora.id</p>
+</div>
+</div>
+</td>
+
+<td>Business Website</td>
+
+<td>
+<span class="status-badge completed">
+Completed
+</span>
+</td>
+
+<td>Rp 3.000.000</td>
+
+<td>18 May 2026</td>
+
+<td>
+
+<div class="table-buttons">
+<button class="mini-btn">View</button>
+<button class="mini-btn">Edit</button>
+</div>
+
+</td>
+
 </tr>
 
 </tbody>
@@ -257,100 +528,175 @@ Revenue Chart
 
 </section>
 
-<section class="quick-actions">
+<section class="client-activity-section">
 
-<div class="section-header">
-<h2>Quick Actions</h2>
+<div class="activity-header">
+<h2>Recent Activity</h2>
 </div>
 
-<div class="action-grid">
-<a href="pages/clients.html" class="action-card">
-<i class="fa-solid fa-user-plus"></i>
-<h3>Add Client</h3>
-<p>Create a new client profile.</p>
-</a>
-<a href="pages/projects.html" class="action-card">
-<i class="fa-solid fa-folder-plus"></i>
-<h3>New Project</h3>
-<p>Track a new project instantly.</p>
-</a>
-<a href="pages/files.html" class="action-card">
-<i class="fa-solid fa-file-circle-plus"></i>
-<h3>Upload Files</h3>
-<p>Store contracts and assets.</p>
-</a>
-<a href="pages/payments.html" class="action-card">
-<i class="fa-solid fa-money-bill-wave"></i>
-<h3>Create Invoice</h3>
-<p>Generate billing records.</p>
-</a>
-</div>
-</section>
+<div class="activity-list">
 
-<section class="clients-overview">
-
-<div class="section-header">
-<h2>Top Clients</h2>
-</div>
-
-<div class="client-cards">
-
-<div class="client-card">
-<div class="client-avatar">HF</div>
+<div class="activity-item">
+<div class="activity-dot"></div>
 <div>
-<h3>HireFlow</h3>
-<p>2 Active Projects</p>
+<h4>New client registered</h4>
+<p>PT Prima Jaya joined the platform.</p>
 </div>
-</div>
-
-<div class="client-card">
-<div class="client-avatar">YG</div>
-<div>
-<h3>YOGIEZ</h3>
-<p>Completed Project</p>
-</div>
+<span>2m ago</span>
 </div>
 
-<div class="client-card">
-<div class="client-avatar">SW</div>
+<div class="activity-item">
+<div class="activity-dot"></div>
 <div>
-<h3>School Web</h3>
-<p>Revision Stage</p>
+<h4>Project completed</h4>
+<p>Landing page delivered successfully.</p>
 </div>
+<span>1h ago</span>
+</div>
+
+<div class="activity-item">
+<div class="activity-dot"></div>
+<div>
+<h4>Invoice paid</h4>
+<p>Payment received from Yogie Store.</p>
+</div>
+<span>3h ago</span>
+</div>
+
+<div class="activity-item">
+<div class="activity-dot"></div>
+<div>
+<h4>New project created</h4>
+<p>Business Website project added.</p>
+</div>
+<span>Yesterday</span>
 </div>
 
 </div>
 
 </section>
 
-<footer class="dashboard-footer">
+<section class="clients-empty-state">
 
-<div class="footer-left">
-<h3>Yogie Client Hub</h3>
-<p>Private workspace for managing clients, projects, payments and business growth.</p>
-</div>
+<div class="empty-card">
 
-<div class="footer-right">
+<i class="fa-solid fa-users"></i>
 
-<div class="footer-stat">
-<span>Total Revenue</span>
-<strong>Rp32.000.000</strong>
-</div>
+<h2>Ready For Real Clients</h2>
 
-<div class="footer-stat">
-<span>Total Clients</span>
-<strong>18</strong>
-</div>
+<p>
+Connect LocalStorage or Supabase to start managing actual client data.
+</p>
 
-<div class="footer-stat">
-<span>Total Projects</span>
-<strong>24</strong>
-</div>
+<button class="header-btn primary">
+Add First Client
+</button>
 
 </div>
 
-</footer>
+</section>
 
+<!-- =========================
+ADD CLIENT MODAL
+========================= -->
+
+<div class="client-modal" id="clientModal">
+
+<div class="client-modal-content">
+
+<div class="modal-header">
+
+<h2>Add Client</h2>
+
+<button id="closeModal">
+×
+</button>
+
+</div>
+
+<form id="clientForm">
+
+<div class="form-group">
+
+<label>Client Name</label>
+
+<input
+type="text"
+id="clientName"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="clientEmail"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Package</label>
+
+<select id="clientPackage">
+
+<option>Landing Page</option>
+<option>Business Website</option>
+<option>E-Commerce</option>
+<option>Custom System</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Status</label>
+
+<select id="clientStatus">
+
+<option>Active</option>
+<option>Pending</option>
+<option>Completed</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Project Value (Number)</label>
+
+<input
+type="number"
+id="clientPrice"
+required
+>
+
+</div>
+
+<button
+type="submit"
+class="header-btn primary"
+style="width:100%;margin-top:10px;"
+>
+
+Save Client
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+  
 </main>
 
 </div>
