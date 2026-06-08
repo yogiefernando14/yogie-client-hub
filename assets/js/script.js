@@ -421,3 +421,168 @@ spotlight.style.top=
 (e.clientY-175)+"px";
 
 });
+
+// =========================
+// KEYBOARD SHORTCUTS
+// =========================
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="/"){
+
+e.preventDefault();
+
+const search=document.querySelector(".search-box input");
+
+if(search){
+search.focus();
+}
+
+}
+
+});
+
+// =========================
+// LIVE GREETING
+// =========================
+
+function updateGreeting(){
+
+const heroLabel=document.querySelector(".hero-label");
+
+if(!heroLabel) return;
+
+const hour=new Date().getHours();
+
+let greeting="Welcome Back";
+
+if(hour<12){
+greeting="Good Morning";
+}
+else if(hour<18){
+greeting="Good Afternoon";
+}
+else{
+greeting="Good Evening";
+}
+
+heroLabel.textContent=`${greeting} • YOGIE CLIENT HUB`;
+
+}
+
+updateGreeting();
+
+// =========================
+// PROJECT TABLE HOVER GLOW
+// =========================
+
+document.querySelectorAll(
+".projects-table tbody tr"
+).forEach(row=>{
+
+row.addEventListener("mouseenter",()=>{
+
+row.style.boxShadow=
+"inset 0 0 0 1px rgba(255,255,255,.08)";
+
+});
+
+row.addEventListener("mouseleave",()=>{
+
+row.style.boxShadow="none";
+
+});
+
+});
+
+// =========================
+// AUTO REVENUE COUNTER
+// =========================
+
+const revenueElement=[...document.querySelectorAll(".stat-card h2")]
+.find(el=>el.textContent.includes("Rp"));
+
+if(revenueElement){
+
+let value=0;
+
+const target=32000000;
+
+const interval=setInterval(()=>{
+
+value+=650000;
+
+if(value>=target){
+
+value=target;
+clearInterval(interval);
+
+}
+
+revenueElement.textContent=
+"Rp"+(value/1000000).toFixed(0)+"M";
+
+},25);
+
+}
+
+// =========================
+// PAGE LOADER
+// =========================
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+
+document.body.style.transition="opacity .8s ease";
+document.body.style.opacity="1";
+
+},50);
+
+});
+
+// =========================
+// RANDOM QUOTES
+// =========================
+
+const quotes=[
+
+"Build. Improve. Repeat.",
+"Every project starts with one client.",
+"Small wins compound into big success.",
+"Consistency beats motivation.",
+"Your next client is one message away."
+
+];
+
+const heroDesc=
+document.querySelector(".hero-description");
+
+if(heroDesc){
+
+setInterval(()=>{
+
+const random=
+quotes[Math.floor(Math.random()*quotes.length)];
+
+heroDesc.textContent=random;
+
+},8000);
+
+}
+
+// =========================
+// CONSOLE EASTER EGG
+// =========================
+
+console.log(
+"%c🚀 Yogie Client Hub Premium",
+"font-size:22px;font-weight:bold;color:white;"
+);
+
+console.log(
+"%cDashboard Loaded Successfully",
+"font-size:14px;color:#999;"
+);
