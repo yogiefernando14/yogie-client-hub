@@ -425,6 +425,7 @@ display:grid;
 grid-template-columns:repeat(6,1fr);
 gap:18px;
 margin-bottom:40px;
+align-items:stretch;
 }
 
 .stat-card{
@@ -435,6 +436,10 @@ padding:24px;
 transition:.35s;
 position:relative;
 overflow:hidden;
+display:flex;
+flex-direction:column;
+justify-content:center;
+min-height:160px;
 }
 
 .stat-card::before{
@@ -464,6 +469,8 @@ margin-bottom:10px;
 .stat-card h2{
 font-size:2rem;
 font-weight:800;
+margin-top:12px;
+line-height:1;
 }
 
 /* =========================
