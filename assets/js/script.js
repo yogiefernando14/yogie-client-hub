@@ -447,6 +447,19 @@ row.style.boxShadow="none";
 
 });
 
+
+function formatRevenue(value){
+if(value >= 1000000000){
+return "Rp " + (value / 1000000000).toFixed(1) + "B";
+}
+if(value >= 1000000){
+return "Rp " + (value / 1000000).toFixed(1) + "M";
+}
+if(value >= 1000){
+return "Rp " + (value / 1000).toFixed(0) + "K";
+}
+return "Rp " + value.toLocaleString("id-ID");
+}
 // =========================
 // AUTO REVENUE COUNTER
 // =========================
