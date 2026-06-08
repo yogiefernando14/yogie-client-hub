@@ -1758,3 +1758,327 @@ updateDashboardStats();
 });
 
 }
+
+// =========================
+
+// PROJECT MODAL
+
+// =========================
+
+let editingProjectId = null;
+
+const projectModal =
+
+document.getElementById(
+
+"projectModal"
+
+);
+
+const projectForm =
+
+document.getElementById(
+
+"projectForm"
+
+);
+
+const closeProjectModal =
+
+document.getElementById(
+
+"closeProjectModal"
+
+);
+
+document
+
+.querySelectorAll(".projects-page .primary")
+
+.forEach(btn=>{
+
+if(
+
+btn.textContent.includes("Add")
+
+){
+
+btn.addEventListener("click",()=>{
+
+projectModal.classList.add(
+
+"show"
+
+);
+
+});
+
+}
+
+});
+
+if(closeProjectModal){
+
+closeProjectModal.addEventListener(
+
+"click",
+
+()=>{
+
+projectModal.classList.remove(
+
+"show"
+
+);
+
+}
+
+);
+
+}
+
+// =========================
+
+// ADD PROJECT
+
+// =========================
+
+if(projectForm){
+
+projectForm.addEventListener(
+
+"submit",
+
+(e)=>{
+
+e.preventDefault();
+
+const data = {
+
+name:
+
+document.getElementById(
+
+"projectName"
+
+).value,
+
+client:
+
+document.getElementById(
+
+"projectClient"
+
+).value,
+
+status:
+
+document.getElementById(
+
+"projectStatus"
+
+).value,
+
+price:
+
+"Rp " +
+
+Number(
+
+document.getElementById(
+
+"projectPrice"
+
+).value
+
+).toLocaleString("id-ID"),
+
+deadline:
+
+document.getElementById(
+
+"projectDeadline"
+
+).value
+
+};
+
+if(editingProjectId){
+
+const index =
+
+projects.findIndex(
+
+p=>p.id===editingProjectId
+
+);
+
+projects[index] = {
+
+...projects[index],
+
+...data
+
+};
+
+editingProjectId = null;
+
+}else{
+
+projects.push({
+
+id:Date.now(),
+
+...data
+
+});
+
+}
+
+saveProjects();
+
+renderProjects();
+
+updateDashboardStats();
+
+projectModal.classList.remove(
+
+"show"
+
+);
+
+projectForm.reset();
+
+});
+
+}
+
+// =========================
+
+// EDIT PROJECT
+
+// =========================
+
+function bindProjectEdit(){
+
+document
+
+.querySelectorAll(".edit-project")
+
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+
+Number(btn.dataset.id);
+
+const project =
+
+projects.find(
+
+p=>p.id===id
+
+);
+
+if(!project) return;
+
+editingProjectId = id;
+
+document.getElementById(
+
+"projectName"
+
+).value = project.name;
+
+document.getElementById(
+
+"projectClient"
+
+).value = project.client;
+
+document.getElementById(
+
+"projectStatus"
+
+).value = project.status;
+
+document.getElementById(
+
+"projectPrice"
+
+).value =
+
+project.price.replace(
+
+/[^0-9]/g,
+
+""
+
+);
+
+document.getElementById(
+
+"projectDeadline"
+
+).value =
+
+project.deadline;
+
+projectModal.classList.add(
+
+"show"
+
+);
+
+});
+
+});
+
+}
+
+// =========================
+
+// DEMO PROJECTS
+
+// =========================
+
+if(projects.length===0){
+
+projects.push({
+
+id:Date.now(),
+
+name:"Yogie Store",
+
+client:"Yogie Store",
+
+status:"Active",
+
+price:"Rp 5000000",
+
+deadline:"2026-06-15"
+
+});
+
+projects.push({
+
+id:Date.now()+1,
+
+name:"Landing Page Arkana",
+
+client:"Arkana Digital",
+
+status:"Pending",
+
+price:"Rp 1500000",
+
+deadline:"2026-06-20"
+
+});
+
+saveProjects();
+
+}
+
+renderProjects();
