@@ -1464,3 +1464,297 @@ updateDashboardPending();
 }
 
 updateDashboardStats();
+
+// =========================
+
+// PROJECT STORAGE
+
+// =========================
+
+let projects =
+
+JSON.parse(
+
+localStorage.getItem("yogie_projects")
+
+) || [];
+
+// =========================
+
+// SAVE PROJECTS
+
+// =========================
+
+function saveProjects(){
+
+localStorage.setItem(
+
+"yogie_projects",
+
+JSON.stringify(projects)
+
+);
+
+}
+
+// =========================
+
+// PROJECT SEARCH
+
+// =========================
+
+const projectSearch =
+
+document.querySelector(
+
+'.projects-page .client-search input'
+
+);
+
+if(projectSearch){
+
+projectSearch.addEventListener("keyup",()=>{
+
+const value =
+
+projectSearch.value.toLowerCase();
+
+const rows =
+
+document.querySelectorAll(
+
+".projects-page .clients-table tbody tr"
+
+);
+
+rows.forEach(row=>{
+
+const text =
+
+row.innerText.toLowerCase();
+
+row.style.display =
+
+text.includes(value) ? "" : "none";
+
+});
+
+});
+
+}
+
+// =========================
+
+// PROJECT STATS
+
+// =========================
+
+function updateProjectStats(){
+
+const total =
+
+document.getElementById("project-total");
+
+const active =
+
+document.getElementById("project-active");
+
+const pending =
+
+document.getElementById("project-pending");
+
+const completed =
+
+document.getElementById("project-completed");
+
+if(total)
+
+total.textContent =
+
+projects.length;
+
+if(active)
+
+active.textContent =
+
+projects.filter(
+
+p=>p.status==="Active"
+
+).length;
+
+if(pending)
+
+pending.textContent =
+
+projects.filter(
+
+p=>p.status==="Pending"
+
+).length;
+
+if(completed)
+
+completed.textContent =
+
+projects.filter(
+
+p=>p.status==="Completed"
+
+).length;
+
+}
+
+// =========================
+
+// PROJECT ROW
+
+// =========================
+
+function createProjectRow(project){
+
+return `
+
+<tr>
+
+<td>${project.name}</td>
+
+<td>${project.client}</td>
+
+<td>
+
+<span class="status-badge ${project.status.toLowerCase()}">
+
+${project.status}
+
+</span>
+
+</td>
+
+<td>${project.price}</td>
+
+<td>${project.deadline}</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button
+
+class="mini-btn edit-project"
+
+data-id="${project.id}"
+
+>
+
+Edit
+
+</button>
+
+<button
+
+class="mini-btn delete-project"
+
+data-id="${project.id}"
+
+>
+
+Delete
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+// =========================
+
+// RENDER PROJECTS
+
+// =========================
+
+function renderProjects(){
+
+const tbody =
+
+document.querySelector(
+
+".projects-page .clients-table tbody"
+
+);
+
+if(!tbody) return;
+
+tbody.innerHTML = "";
+
+projects.forEach(project=>{
+
+tbody.innerHTML +=
+
+createProjectRow(project);
+
+});
+
+updateProjectStats();
+
+bindProjectDelete();
+
+bindProjectEdit();
+
+}
+
+// =========================
+
+// DELETE PROJECT
+
+// =========================
+
+function bindProjectDelete(){
+
+document
+
+.querySelectorAll(".delete-project")
+
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+
+Number(btn.dataset.id);
+
+if(
+
+!confirm(
+
+"Delete this project?"
+
+)
+
+) return;
+
+projects =
+
+projects.filter(
+
+p=>p.id!==id
+
+);
+
+saveProjects();
+
+renderProjects();
+
+updateDashboardStats();
+
+});
+
+});
+
+}
