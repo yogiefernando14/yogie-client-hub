@@ -2316,3 +2316,379 @@ bindInvoiceDelete();
 bindInvoiceEdit();
 
 }
+
+// =========================
+
+// INVOICE MODAL
+
+// =========================
+
+let editingInvoiceId = null;
+
+const invoiceModal =
+
+document.getElementById(
+
+"invoiceModal"
+
+);
+
+const invoiceForm =
+
+document.getElementById(
+
+"invoiceForm"
+
+);
+
+const closeInvoiceModal =
+
+document.getElementById(
+
+"closeInvoiceModal"
+
+);
+
+document
+
+.querySelectorAll(".payments-page .primary")
+
+.forEach(btn=>{
+
+if(
+
+btn.textContent.includes("Create")
+
+){
+
+btn.addEventListener("click",()=>{
+
+invoiceModal.classList.add(
+
+"show"
+
+);
+
+});
+
+}
+
+});
+
+if(closeInvoiceModal){
+
+closeInvoiceModal.addEventListener(
+
+"click",
+
+()=>{
+
+invoiceModal.classList.remove(
+
+"show"
+
+);
+
+}
+
+);
+
+}
+
+// =========================
+
+// ADD / EDIT INVOICE
+
+// =========================
+
+if(invoiceForm){
+
+invoiceForm.addEventListener(
+
+"submit",
+
+(e)=>{
+
+e.preventDefault();
+
+const data = {
+
+invoice:
+
+"INV-" +
+
+String(
+
+Date.now()
+
+).slice(-4),
+
+client:
+
+document.getElementById(
+
+"invoiceClient"
+
+).value,
+
+amount:
+
+"Rp " +
+
+Number(
+
+document.getElementById(
+
+"invoiceAmount"
+
+).value
+
+).toLocaleString("id-ID"),
+
+status:
+
+document.getElementById(
+
+"invoiceStatus"
+
+).value,
+
+dueDate:
+
+document.getElementById(
+
+"invoiceDueDate"
+
+).value
+
+};
+
+if(editingInvoiceId){
+
+const index =
+
+invoices.findIndex(
+
+i=>i.id===editingInvoiceId
+
+);
+
+invoices[index] = {
+
+...invoices[index],
+
+...data
+
+};
+
+editingInvoiceId = null;
+
+}else{
+
+invoices.push({
+
+id:Date.now(),
+
+...data
+
+});
+
+}
+
+saveInvoices();
+
+renderInvoices();
+
+invoiceModal.classList.remove(
+
+"show"
+
+);
+
+invoiceForm.reset();
+
+});
+
+}
+
+// =========================
+
+// DELETE INVOICE
+
+// =========================
+
+function bindInvoiceDelete(){
+
+document
+
+.querySelectorAll(".delete-invoice")
+
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+
+Number(btn.dataset.id);
+
+if(
+
+!confirm(
+
+"Delete invoice?"
+
+)
+
+) return;
+
+invoices =
+
+invoices.filter(
+
+i=>i.id!==id
+
+);
+
+saveInvoices();
+
+renderInvoices();
+
+});
+
+});
+
+}
+
+// =========================
+
+// EDIT INVOICE
+
+// =========================
+
+function bindInvoiceEdit(){
+
+document
+
+.querySelectorAll(".edit-invoice")
+
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+
+Number(btn.dataset.id);
+
+const invoice =
+
+invoices.find(
+
+i=>i.id===id
+
+);
+
+if(!invoice) return;
+
+editingInvoiceId = id;
+
+document.getElementById(
+
+"invoiceClient"
+
+).value =
+
+invoice.client;
+
+document.getElementById(
+
+"invoiceAmount"
+
+).value =
+
+invoice.amount.replace(
+
+/[^0-9]/g,
+
+""
+
+);
+
+document.getElementById(
+
+"invoiceStatus"
+
+).value =
+
+invoice.status;
+
+document.getElementById(
+
+"invoiceDueDate"
+
+).value =
+
+invoice.dueDate;
+
+invoiceModal.classList.add(
+
+"show"
+
+);
+
+});
+
+});
+
+}
+
+// =========================
+
+// DEMO INVOICES
+
+// =========================
+
+if(invoices.length===0){
+
+invoices.push({
+
+id:1,
+
+invoice:"INV-001",
+
+client:"Yogie Store",
+
+amount:"Rp 5000000",
+
+status:"Paid",
+
+dueDate:"2026-06-15"
+
+});
+
+invoices.push({
+
+id:2,
+
+invoice:"INV-002",
+
+client:"Arkana Digital",
+
+amount:"Rp 1500000",
+
+status:"Pending",
+
+dueDate:"2026-06-20"
+
+});
+
+saveInvoices();
+
+}
+
+// =========================
+
+// INITIALIZE
+
+// =========================
+
+renderInvoices();
