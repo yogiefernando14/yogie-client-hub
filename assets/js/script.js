@@ -1292,3 +1292,175 @@ updateRevenue();
 };
 
 renderClients();
+
+// =========================
+// GLOBAL DASHBOARD STATS
+// =========================
+
+function getClients(){
+
+return JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [];
+
+}
+
+// =========================
+// TOTAL CLIENTS
+// =========================
+
+function updateDashboardClients(){
+
+const clients = getClients();
+
+const totalClientsCard =
+document.querySelector(
+"#dashboard-total-clients"
+);
+
+if(totalClientsCard){
+
+totalClientsCard.textContent =
+clients.length;
+
+}
+
+}
+
+// =========================
+// ACTIVE CLIENTS
+// =========================
+
+function updateDashboardActive(){
+
+const clients = getClients();
+
+const active =
+clients.filter(
+client =>
+client.status === "Active"
+).length;
+
+const activeCard =
+document.querySelector(
+"#dashboard-active-projects"
+);
+
+if(activeCard){
+
+activeCard.textContent = active;
+
+}
+
+}
+
+// =========================
+// TOTAL REVENUE
+// =========================
+
+function updateDashboardRevenue(){
+
+const clients = getClients();
+
+let total = 0;
+
+clients.forEach(client=>{
+
+const value =
+parseInt(
+client.price.replace(/[^0-9]/g,"")
+);
+
+total += value;
+
+});
+
+const revenueCard =
+document.querySelector(
+"#dashboard-revenue"
+);
+
+if(revenueCard){
+
+revenueCard.textContent =
+formatRevenue(total);
+
+}
+
+}
+
+// =========================
+// COMPLETED
+// =========================
+
+function updateDashboardCompleted(){
+
+const clients = getClients();
+
+const completed =
+clients.filter(
+client =>
+client.status === "Completed"
+).length;
+
+const completedCard =
+document.querySelector(
+"#dashboard-completed"
+);
+
+if(completedCard){
+
+completedCard.textContent =
+completed;
+
+}
+
+}
+
+// =========================
+// PENDING
+// =========================
+
+function updateDashboardPending(){
+
+const clients = getClients();
+
+const pending =
+clients.filter(
+client =>
+client.status === "Pending"
+).length;
+
+const pendingCard =
+document.querySelector(
+"#dashboard-pending"
+);
+
+if(pendingCard){
+
+pendingCard.textContent =
+pending;
+
+}
+
+}
+
+// =========================
+// DASHBOARD UPDATE
+// =========================
+
+function updateDashboardStats(){
+
+updateDashboardClients();
+
+updateDashboardRevenue();
+
+updateDashboardActive();
+
+updateDashboardCompleted();
+
+updateDashboardPending();
+
+}
+
+updateDashboardStats();
