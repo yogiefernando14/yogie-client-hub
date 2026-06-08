@@ -285,3 +285,287 @@ background:rgba(255,255,255,.03);
 display:block;
 color:var(--muted);
 }
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+display:grid;
+grid-template-columns:1.5fr .8fr;
+gap:24px;
+align-items:center;
+margin-bottom:40px;
+}
+
+.hero-label{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.03);
+font-size:.85rem;
+color:#cfcfcf;
+margin-bottom:20px;
+width:fit-content;
+}
+
+.hero h1{
+font-size:4.5rem;
+line-height:.95;
+font-weight:800;
+letter-spacing:-2px;
+background:linear-gradient(
+180deg,
+#ffffff,
+#bfbfbf
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:20px;
+}
+
+.hero-description{
+max-width:700px;
+color:var(--muted);
+line-height:1.8;
+font-size:1rem;
+}
+
+.hero-widget{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.widget-card{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+border-radius:24px;
+padding:24px;
+backdrop-filter:blur(20px);
+}
+
+.widget-card span{
+display:block;
+color:var(--muted);
+margin-bottom:10px;
+font-size:.85rem;
+}
+
+.widget-card h2,
+.widget-card h3{
+font-size:1.8rem;
+font-weight:700;
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:18px;
+margin-bottom:40px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+border-radius:24px;
+padding:24px;
+transition:.35s;
+position:relative;
+overflow:hidden;
+}
+
+.stat-card::before{
+content:'';
+position:absolute;
+width:120px;
+height:120px;
+background:rgba(255,255,255,.05);
+border-radius:50%;
+right:-40px;
+top:-40px;
+filter:blur(30px);
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+border-color:rgba(255,255,255,.15);
+}
+
+.stat-card span{
+display:block;
+font-size:.85rem;
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.stat-card h2{
+font-size:2rem;
+font-weight:800;
+}
+
+/* =========================
+DASHBOARD GRID
+========================= */
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+margin-bottom:40px;
+}
+
+.revenue-card,
+.activity-card{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+border-radius:28px;
+padding:28px;
+backdrop-filter:blur(20px);
+}
+
+.section-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:24px;
+}
+
+.section-header h2{
+font-size:1.25rem;
+font-weight:700;
+}
+
+/* =========================
+CHART
+========================= */
+
+.chart-area{
+height:320px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:20px;
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,.03),
+rgba(255,255,255,.01)
+);
+border:1px dashed rgba(255,255,255,.08);
+}
+
+.chart-placeholder{
+font-size:1.2rem;
+font-weight:600;
+color:#888;
+}
+
+/* =========================
+ACTIVITY
+========================= */
+
+.activity-list{
+list-style:none;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.activity-list li{
+display:flex;
+align-items:center;
+gap:12px;
+color:#d5d5d5;
+line-height:1.6;
+}
+
+.activity-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#fff;
+box-shadow:0 0 15px rgba(255,255,255,.6);
+flex-shrink:0;
+}
+
+/* =========================
+PROJECT TABLE
+========================= */
+
+.projects-section{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+border-radius:28px;
+padding:28px;
+margin-bottom:40px;
+backdrop-filter:blur(20px);
+}
+
+.view-all{
+text-decoration:none;
+color:#fff;
+font-size:.9rem;
+}
+
+.table-wrapper{
+overflow:auto;
+}
+
+.projects-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.projects-table th{
+text-align:left;
+padding:18px;
+color:#9d9d9d;
+font-weight:600;
+font-size:.9rem;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.projects-table td{
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.projects-table tr:hover{
+background:rgba(255,255,255,.02);
+}
+
+.status{
+padding:8px 12px;
+border-radius:999px;
+font-size:.75rem;
+font-weight:600;
+display:inline-block;
+}
+
+.status.completed{
+background:rgba(0,255,140,.12);
+color:#89ffbf;
+}
+
+.status.development{
+background:rgba(0,153,255,.12);
+color:#7ec7ff;
+}
+
+.status.pending{
+background:rgba(255,170,0,.12);
+color:#ffd27a;
+}
+
+.status.revision{
+background:rgba(255,255,255,.08);
+color:#ffffff;
+}
