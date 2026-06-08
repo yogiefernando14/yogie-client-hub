@@ -1,1 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yogie Client Hub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
 
+<div class="background">
+  <div class="background-glow">
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+</div>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+</div>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<div class="logo">
+<span>YF</span> Client Hub
+</div>
+
+<nav class="nav">
+<a href="index.html" class="active"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a>
+<a href="pages/clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a>
+<a href="pages/projects.html"><i class="fa-solid fa-folder-open"></i><span>Projects</span></a>
+<a href="pages/payments.html"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+<a href="pages/files.html"><i class="fa-solid fa-file"></i><span>Files</span></a>
+<a href="pages/notes.html"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a>
+<a href="pages/analytics.html"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+<a href="pages/settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+</nav>
+
+<div class="sidebar-footer">
+<div class="mini-profile">
+<div class="avatar"></div>
+<div>
+<strong>Yogie Fernando</strong>
+<small>Owner</small>
+</div>
+</div>
+</div>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<div class="search-box">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" placeholder="Search clients, projects, files...">
+</div>
+
+<div class="topbar-actions">
+
+<button class="icon-btn">
+<i class="fa-regular fa-bell"></i>
+</button>
+
+<button class="icon-btn">
+<i class="fa-regular fa-envelope"></i>
+</button>
+
+<div class="topbar-profile">
+<div class="avatar"></div>
+<div>
+<strong>Yogie Fernando</strong>
+<small>Administrator</small>
+</div>
+</div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<p class="hero-label">
+YOGIE CLIENT HUB
+</p>
+
+<h1>
+Manage Clients,<br>
+Projects & Revenue
+</h1>
+
+<p class="hero-description">
+Private workspace for managing website orders, payments, files, revisions, clients and business growth.
+</p>
+
+</div>
+
+<div class="hero-widget">
+
+<div class="widget-card">
+<span>Current Date</span>
+<h3 id="live-date">Loading...</h3>
+</div>
+
+<div class="widget-card">
+<span>Current Time</span>
+<h2 id="live-clock">00:00:00</h2>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats-grid">
+
+<div class="stat-card">
+<span>Total Projects</span>
+<h2 id="dashboard-total-projects">24</h2>
+</div>
+
+<div class="stat-card">
+<span>Total Clients</span>
+<h2 id="dashboard-total-clients">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Total Revenue (IDR)</span>
+<h2 id="dashboard-revenue">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Active Projects</span>
+<h2 id="dashboard-active-projects">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Pending</span>
+<h2 id="dashboard-pending">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Completed</span>
+<h2 id="dashboard-completed">0</h2>
+</div>
+
+</section>
+
+<section class="dashboard-grid">
+
+<div class="revenue-card">
+
+<div class="section-header">
+<h2>Revenue Overview</h2>
+</div>
+
+<div class="chart-area">
+<div class="chart-placeholder">
+Revenue Chart
+</div>
+</div>
+
+</div>
+
+<div class="activity-card">
+
+<div class="section-header">
+<h2>Recent Activity</h2>
+</div>
+
+<ul class="activity-list">
+<li><span class="activity-dot"></span>New client inquiry received</li>
+<li><span class="activity-dot"></span>Payment confirmed from HireFlow project</li>
+<li><span class="activity-dot"></span>YOGIEZ Store marked as completed</li>
+<li><span class="activity-dot"></span>Revision request uploaded</li>
+<li><span class="activity-dot"></span>Domain renewal reminder created</li>
+</ul>
+
+</div>
+
+</section>
+
+<section class="projects-section">
+
+<div class="section-header">
+<h2>Recent Projects</h2>
+<a href="#" class="view-all">View All</a>
+</div>
+
+<div class="table-wrapper">
+
+<table class="projects-table">
+
+<thead>
+<tr>
+<th>Project</th>
+<th>Client</th>
+<th>Status</th>
+<th>Progress</th>
+<th>Budget</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>HireFlow</td>
+<td>Demo Client</td>
+<td><span class="status development">Development</span></td>
+<td>80%</td>
+<td>Rp2.500.000</td>
+</tr>
+
+<tr>
+<td>YOGIEZ Store</td>
+<td>Demo Client</td>
+<td><span class="status completed">Completed</span></td>
+<td>100%</td>
+<td>Rp3.000.000</td>
+</tr>
+
+<tr>
+<td>School Website</td>
+<td>Demo Client</td>
+<td><span class="status revision">Revision</span></td>
+<td>95%</td>
+<td>Rp4.500.000</td>
+</tr>
+
+<tr>
+<td>Portfolio Website</td>
+<td>Demo Client</td>
+<td><span class="status pending">Pending</span></td>
+<td>20%</td>
+<td>Rp1.500.000</td>
+</tr>
+
+<tr>
+<td>Booking System</td>
+<td>Demo Client</td>
+<td><span class="status development">Development</span></td>
+<td>60%</td>
+<td>Rp7.000.000</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="quick-actions">
+
+<div class="section-header">
+<h2>Quick Actions</h2>
+</div>
+
+<div class="action-grid">
+<a href="pages/clients.html" class="action-card">
+<i class="fa-solid fa-user-plus"></i>
+<h3>Add Client</h3>
+<p>Create a new client profile.</p>
+</a>
+<a href="pages/projects.html" class="action-card">
+<i class="fa-solid fa-folder-plus"></i>
+<h3>New Project</h3>
+<p>Track a new project instantly.</p>
+</a>
+<a href="pages/files.html" class="action-card">
+<i class="fa-solid fa-file-circle-plus"></i>
+<h3>Upload Files</h3>
+<p>Store contracts and assets.</p>
+</a>
+<a href="pages/payments.html" class="action-card">
+<i class="fa-solid fa-money-bill-wave"></i>
+<h3>Create Invoice</h3>
+<p>Generate billing records.</p>
+</a>
+</div>
+</section>
+
+<section class="clients-overview">
+
+<div class="section-header">
+<h2>Top Clients</h2>
+</div>
+
+<div class="client-cards">
+
+<div class="client-card">
+<div class="client-avatar">HF</div>
+<div>
+<h3>HireFlow</h3>
+<p>2 Active Projects</p>
+</div>
+</div>
+
+<div class="client-card">
+<div class="client-avatar">YG</div>
+<div>
+<h3>YOGIEZ</h3>
+<p>Completed Project</p>
+</div>
+</div>
+
+<div class="client-card">
+<div class="client-avatar">SW</div>
+<div>
+<h3>School Web</h3>
+<p>Revision Stage</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer class="dashboard-footer">
+
+<div class="footer-left">
+<h3>Yogie Client Hub</h3>
+<p>Private workspace for managing clients, projects, payments and business growth.</p>
+</div>
+
+<div class="footer-right">
+
+<div class="footer-stat">
+<span>Total Revenue</span>
+<strong>Rp32.000.000</strong>
+</div>
+
+<div class="footer-stat">
+<span>Total Clients</span>
+<strong>18</strong>
+</div>
+
+<div class="footer-stat">
+<span>Total Projects</span>
+<strong>24</strong>
+</div>
+
+</div>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
