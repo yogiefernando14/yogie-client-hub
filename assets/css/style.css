@@ -475,7 +475,11 @@ margin-top:12px;
 line-height:1;
 width:100%;
 text-align:center;
+}
+
+.revenue h2{
 white-space:nowrap;
+font-size:1.7rem;
 }
 
 /* =========================
