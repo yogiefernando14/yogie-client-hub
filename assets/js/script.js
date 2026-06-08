@@ -703,3 +703,278 @@ item.style.transform="translateY(0)";
 },index*150);
 
 });
+
+// =========================
+// CLIENT STORAGE
+// =========================
+
+let clients =
+JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [];
+
+// =========================
+// SAVE CLIENTS
+// =========================
+
+function saveClients(){
+
+localStorage.setItem(
+"yogie_clients",
+JSON.stringify(clients)
+);
+
+}
+
+// =========================
+// UPDATE STATS
+// =========================
+
+function updateClientStats(){
+
+const totalClients =
+document.querySelector(
+".client-stat-card:nth-child(1) h2"
+);
+
+const activeClients =
+document.querySelector(
+".client-stat-card:nth-child(2) h2"
+);
+
+if(totalClients){
+
+totalClients.textContent =
+clients.length;
+
+}
+
+if(activeClients){
+
+const active =
+clients.filter(
+c=>c.status==="Active"
+).length;
+
+activeClients.textContent =
+active;
+
+}
+
+}
+
+// =========================
+// GENERATE CLIENT ROW
+// =========================
+
+function createClientRow(client){
+
+return `
+<tr>
+
+<td>
+
+<div class="client-info">
+
+<div class="client-avatar">
+${client.name.charAt(0)}
+</div>
+
+<div>
+
+<h4>${client.name}</h4>
+
+<p>${client.email}</p>
+
+</div>
+
+</div>
+
+</td>
+
+<td>
+${client.package}
+</td>
+
+<td>
+
+<span class="status-badge ${client.status.toLowerCase()}">
+${client.status}
+</span>
+
+</td>
+
+<td>
+${client.price}
+</td>
+
+<td>
+${client.date}
+</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button
+class="mini-btn edit-client"
+data-id="${client.id}"
+>
+Edit
+</button>
+
+<button
+class="mini-btn delete-client"
+data-id="${client.id}"
+>
+Delete
+</button>
+
+</div>
+
+</td>
+
+</tr>
+`;
+
+}
+
+// =========================
+// RENDER CLIENTS
+// =========================
+
+function renderClients(){
+
+const tbody =
+document.querySelector(
+".clients-table tbody"
+);
+
+if(!tbody) return;
+
+tbody.innerHTML="";
+
+clients.forEach(client=>{
+
+tbody.innerHTML +=
+createClientRow(client);
+
+});
+
+updateClientStats();
+
+bindDeleteButtons();
+
+}
+
+// =========================
+// DELETE CLIENT
+// =========================
+
+function bindDeleteButtons(){
+
+document
+.querySelectorAll(".delete-client")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+Number(btn.dataset.id);
+
+clients =
+clients.filter(
+client=>client.id!==id
+);
+
+saveClients();
+
+renderClients();
+
+});
+
+});
+
+}
+
+// =========================
+// ADD DUMMY CLIENT
+// =========================
+
+function addClient(client){
+
+clients.push({
+
+id:Date.now(),
+
+...client
+
+});
+
+saveClients();
+
+renderClients();
+
+}
+
+// =========================
+// FIRST LOAD
+// =========================
+
+renderClients();
+
+// =========================
+// DEMO DATA
+// =========================
+
+if(clients.length===0){
+
+addClient({
+
+name:"Yogie Store",
+
+email:"client@yogiestore.com",
+
+package:"Business Website",
+
+status:"Active",
+
+price:"Rp 5.000.000",
+
+date:"08 Jun 2026"
+
+});
+
+addClient({
+
+name:"Arkana Digital",
+
+email:"hello@arkana.id",
+
+package:"Landing Page",
+
+status:"Pending",
+
+price:"Rp 1.500.000",
+
+date:"06 Jun 2026"
+
+});
+
+addClient({
+
+name:"PT Prima Jaya",
+
+email:"admin@primajaya.co.id",
+
+package:"E-Commerce",
+
+status:"Completed",
+
+price:"Rp 8.500.000",
+
+date:"03 Jun 2026"
+
+});
+
+}
