@@ -978,3 +978,124 @@ date:"03 Jun 2026"
 });
 
 }
+
+// =========================
+// ADD CLIENT MODAL
+// =========================
+
+const modal =
+document.getElementById("clientModal");
+
+const addButtons =
+document.querySelectorAll(".primary");
+
+const closeModal =
+document.getElementById("closeModal");
+
+addButtons.forEach(btn=>{
+
+if(btn.textContent.includes("Add")){
+
+btn.addEventListener("click",()=>{
+
+modal.classList.add("show");
+
+});
+
+}
+
+});
+
+if(closeModal){
+
+closeModal.addEventListener("click",()=>{
+
+modal.classList.remove("show");
+
+});
+
+}
+
+// =========================
+// CLIENT FORM
+// =========================
+
+const clientForm =
+document.getElementById("clientForm");
+
+if(clientForm){
+
+clientForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const price =
+Number(
+document.getElementById("clientPrice").value
+);
+
+addClient({
+
+name:
+document.getElementById("clientName").value,
+
+email:
+document.getElementById("clientEmail").value,
+
+package:
+document.getElementById("clientPackage").value,
+
+status:
+document.getElementById("clientStatus").value,
+
+price:
+"Rp " + price.toLocaleString("id-ID"),
+
+date:
+new Date().toLocaleDateString("id-ID")
+
+});
+
+updateRevenue();
+
+modal.classList.remove("show");
+
+clientForm.reset();
+
+});
+
+}
+
+// =========================
+// AUTO REVENUE
+// =========================
+
+function updateRevenue(){
+
+let total = 0;
+
+clients.forEach(client=>{
+
+const number =
+parseInt(
+client.price
+.replace(/[^0-9]/g,"")
+);
+
+total += number;
+
+});
+
+const revenue =
+document.getElementById("client-revenue");
+
+if(revenue){
+
+revenue.textContent =
+formatRevenue(total);
+
+}
+
+}
+
+updateRevenue();
