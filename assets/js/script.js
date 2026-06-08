@@ -1099,3 +1099,196 @@ formatRevenue(total);
 }
 
 updateRevenue();
+
+// =========================
+// DELETE CONFIRMATION
+// =========================
+
+function bindDeleteButtons(){
+
+document
+.querySelectorAll(".delete-client")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+Number(btn.dataset.id);
+
+const confirmDelete =
+confirm(
+"Delete this client permanently?"
+);
+
+if(!confirmDelete) return;
+
+clients =
+clients.filter(
+client=>client.id!==id
+);
+
+saveClients();
+
+renderClients();
+
+updateRevenue();
+
+});
+
+});
+
+}
+
+// =========================
+// EDIT CLIENT
+// =========================
+
+let editingClientId = null;
+
+function bindEditButtons(){
+
+document
+.querySelectorAll(".edit-client")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+Number(btn.dataset.id);
+
+const client =
+clients.find(
+c=>c.id===id
+);
+
+if(!client) return;
+
+editingClientId = id;
+
+document.getElementById(
+"clientName"
+).value = client.name;
+
+document.getElementById(
+"clientEmail"
+).value = client.email;
+
+document.getElementById(
+"clientPackage"
+).value = client.package;
+
+document.getElementById(
+"clientStatus"
+).value = client.status;
+
+document.getElementById(
+"clientPrice"
+).value =
+client.price.replace(/[^0-9]/g,"");
+
+modal.classList.add("show");
+
+});
+
+});
+
+}
+
+// =========================
+// OVERRIDE FORM SAVE
+// =========================
+
+if(clientForm){
+
+clientForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const data = {
+
+name:
+document.getElementById("clientName").value,
+
+email:
+document.getElementById("clientEmail").value,
+
+package:
+document.getElementById("clientPackage").value,
+
+status:
+document.getElementById("clientStatus").value,
+
+price:
+"Rp " +
+Number(
+document.getElementById("clientPrice").value
+).toLocaleString("id-ID"),
+
+date:
+new Date().toLocaleDateString("id-ID")
+
+};
+
+if(editingClientId){
+
+const index =
+clients.findIndex(
+c=>c.id===editingClientId
+);
+
+clients[index] = {
+
+...clients[index],
+
+...data
+
+};
+
+editingClientId = null;
+
+}else{
+
+clients.push({
+
+id:Date.now(),
+
+...data
+
+});
+
+}
+
+saveClients();
+
+renderClients();
+
+updateRevenue();
+
+modal.classList.remove("show");
+
+clientForm.reset();
+
+});
+
+}
+
+// =========================
+// RENDER EXTENSION
+// =========================
+
+const originalRender =
+renderClients;
+
+renderClients = function(){
+
+originalRender();
+
+bindEditButtons();
+
+bindDeleteButtons();
+
+updateRevenue();
+
+};
+
+renderClients();
