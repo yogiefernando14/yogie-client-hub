@@ -40,6 +40,64 @@ overflow:hidden;
 z-index:-2;
 }
 
+.background-glow{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+}
+
+.glow{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.15;
+animation:floatGlow 20s ease-in-out infinite;
+}
+
+.glow-1{
+width:500px;
+height:500px;
+background:#ffffff;
+top:-150px;
+left:-150px;
+}
+
+.glow-2{
+width:400px;
+height:400px;
+background:#bdbdbd;
+top:40%;
+right:-120px;
+animation-delay:5s;
+}
+
+.glow-3{
+width:450px;
+height:450px;
+background:#8f8f8f;
+bottom:-150px;
+left:30%;
+animation-delay:10s;
+
+}
+@keyframes floatGlow{
+0%,100%{
+transform:translate(0,0) scale(1);
+}
+25%{
+transform:translate(60px,-40px) scale(1.1);
+}
+50%{
+transform:translate(-40px,50px) scale(.95);
+}
+75%{
+transform:translate(50px,30px) scale(1.05);
+}
+
+}
+
 .grid-bg{
 position:absolute;
 inset:0;
