@@ -477,14 +477,6 @@ width:100%;
 text-align:center;
 }
 
-.stat-card h2 small{
-font-size:.8rem;
-font-weight:600;
-opacity:.7;
-vertical-align:middle;
-margin-right:4px;
-}
-
 /* =========================
 DASHBOARD GRID
 ========================= */
