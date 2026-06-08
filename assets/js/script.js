@@ -485,7 +485,7 @@ clearInterval(interval);
 }
 
 revenueElement.textContent=
-"Rp"+(value/1000000).toFixed(0)+"M";
+formatRevenue(value);
 
 },25);
 
