@@ -551,3 +551,155 @@ console.log(
 "%cDashboard Loaded Successfully",
 "font-size:14px;color:#999;"
 );
+
+// =========================
+// CLIENT SEARCH
+// =========================
+
+const clientSearch =
+document.querySelector(".client-search input");
+
+if(clientSearch){
+
+clientSearch.addEventListener("keyup",()=>{
+
+const value =
+clientSearch.value.toLowerCase();
+
+const rows =
+document.querySelectorAll(".clients-table tbody tr");
+
+rows.forEach(row=>{
+
+const text =
+row.innerText.toLowerCase();
+
+row.style.display =
+text.includes(value) ? "" : "none";
+
+});
+
+});
+
+}
+
+// =========================
+// CLIENT TABLE ANIMATION
+// =========================
+
+document.querySelectorAll(
+".clients-table tbody tr"
+).forEach((row,index)=>{
+
+row.style.opacity="0";
+row.style.transform="translateY(20px)";
+
+setTimeout(()=>{
+
+row.style.transition=".5s";
+row.style.opacity="1";
+row.style.transform="translateY(0)";
+
+},index*120);
+
+});
+
+// =========================
+// CLIENT STATS COUNTER
+// =========================
+
+document.querySelectorAll(
+".client-stat-card h2[data-counter]"
+).forEach(counter=>{
+
+const target=
++counter.dataset.counter;
+
+let current=0;
+
+const increment=
+Math.max(1,target/50);
+
+const timer=setInterval(()=>{
+
+current+=increment;
+
+if(current>=target){
+
+counter.textContent=target;
+
+clearInterval(timer);
+
+}else{
+
+counter.textContent=
+Math.floor(current);
+
+}
+
+},20);
+
+});
+
+// =========================
+// TABLE BUTTON EFFECT
+// =========================
+
+document.querySelectorAll(
+".mini-btn"
+).forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform=
+"translateY(-2px)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform=
+"translateY(0)";
+
+});
+
+});
+
+// =========================
+// FILTER SELECT EFFECT
+// =========================
+
+document.querySelectorAll(
+".filter-select"
+).forEach(select=>{
+
+select.addEventListener("change",()=>{
+
+select.style.borderColor=
+"rgba(255,255,255,.15)";
+
+});
+
+});
+
+// =========================
+// CLIENT ACTIVITY REVEAL
+// =========================
+
+const activityItems =
+document.querySelectorAll(".activity-item");
+
+activityItems.forEach((item,index)=>{
+
+item.style.opacity="0";
+item.style.transform="translateY(20px)";
+
+setTimeout(()=>{
+
+item.style.transition=".6s";
+item.style.opacity="1";
+item.style.transform="translateY(0)";
+
+},index*150);
+
+});
