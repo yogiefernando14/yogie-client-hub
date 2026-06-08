@@ -181,52 +181,6 @@ link.classList.add("active");
 
 });
 
-// =========================
-// FLOATING ORB PARALLAX
-// =========================
-
-document.addEventListener("mousemove", (e) => {
-
-const x = e.clientX / window.innerWidth;
-const y = e.clientY / window.innerHeight;
-
-const orb1 = document.querySelector(".orb-1");
-const orb2 = document.querySelector(".orb-2");
-const orb3 = document.querySelector(".orb-3");
-
-if (orb1) {
-orb1.style.transform =
-`translate(${x * -20}px, ${y * -20}px)`;
-}
-
-if (orb2) {
-orb2.style.transform =
-`translate(${x * 25}px, ${y * 25}px)`;
-}
-
-if (orb3) {
-orb3.style.transform =
-`translate(${x * -15}px, ${y * -15}px)`;
-}
-
-});
-
-// =========================
-// FAKE NOTIFICATION
-// =========================
-
-const bell = document.querySelector(".icon-btn");
-
-if (bell) {
-
-bell.addEventListener("click", () => {
-
-alert(
-"🔔 Notifications\\n\\nNo new notifications."
-);
-
-});
-
 }
 
 // =========================
