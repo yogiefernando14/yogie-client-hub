@@ -2082,3 +2082,237 @@ saveProjects();
 }
 
 renderProjects();
+
+// =========================
+// PAYMENT STORAGE
+// =========================
+
+let invoices =
+JSON.parse(
+localStorage.getItem("yogie_invoices")
+) || [];
+
+// =========================
+// SAVE INVOICES
+// =========================
+
+function saveInvoices(){
+
+localStorage.setItem(
+"yogie_invoices",
+JSON.stringify(invoices)
+);
+
+}
+
+// =========================
+// SEARCH INVOICE
+// =========================
+
+const paymentSearch =
+document.querySelector(
+'.payments-page .client-search input'
+);
+
+if(paymentSearch){
+
+paymentSearch.addEventListener(
+"keyup",
+()=>{
+
+const value =
+paymentSearch.value.toLowerCase();
+
+const rows =
+document.querySelectorAll(
+".payments-page .clients-table tbody tr"
+);
+
+rows.forEach(row=>{
+
+const text =
+row.innerText.toLowerCase();
+
+row.style.display =
+text.includes(value)
+? ""
+: "none";
+
+});
+
+});
+
+}
+
+// =========================
+// FORMAT REVENUE
+// =========================
+
+function paymentValue(str){
+
+return parseInt(
+str.replace(/[^0-9]/g,"")
+) || 0;
+
+}
+
+// =========================
+// UPDATE PAYMENT STATS
+// =========================
+
+function updatePaymentStats(){
+
+let totalRevenue = 0;
+let paidRevenue = 0;
+let pendingRevenue = 0;
+
+invoices.forEach(invoice=>{
+
+const value =
+paymentValue(invoice.amount);
+
+totalRevenue += value;
+
+if(invoice.status==="Paid"){
+
+paidRevenue += value;
+
+}else{
+
+pendingRevenue += value;
+
+}
+
+});
+
+const total =
+document.getElementById(
+"payment-total-revenue"
+);
+
+const paid =
+document.getElementById(
+"payment-paid"
+);
+
+const pending =
+document.getElementById(
+"payment-pending"
+);
+
+const count =
+document.getElementById(
+"payment-invoices"
+);
+
+if(total)
+total.textContent =
+formatRevenue(totalRevenue);
+
+if(paid)
+paid.textContent =
+formatRevenue(paidRevenue);
+
+if(pending)
+pending.textContent =
+formatRevenue(pendingRevenue);
+
+if(count)
+count.textContent =
+invoices.length;
+
+}
+
+// =========================
+// INVOICE ROW
+// =========================
+
+function createInvoiceRow(invoice){
+
+return `
+
+<tr>
+
+<td>${invoice.invoice}</td>
+
+<td>${invoice.client}</td>
+
+<td>
+
+<span class="status-badge ${
+invoice.status==="Paid"
+? "active"
+: "pending"
+}">
+
+${invoice.status}
+
+</span>
+
+</td>
+
+<td>${invoice.amount}</td>
+
+<td>${invoice.dueDate}</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button
+class="mini-btn edit-invoice"
+data-id="${invoice.id}"
+>
+
+Edit
+
+</button>
+
+<button
+class="mini-btn delete-invoice"
+data-id="${invoice.id}"
+>
+
+Delete
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+// =========================
+// RENDER INVOICES
+// =========================
+
+function renderInvoices(){
+
+const tbody =
+document.querySelector(
+".payments-page .clients-table tbody"
+);
+
+if(!tbody) return;
+
+tbody.innerHTML = "";
+
+invoices.forEach(invoice=>{
+
+tbody.innerHTML +=
+createInvoiceRow(invoice);
+
+});
+
+updatePaymentStats();
+
+bindInvoiceDelete();
+
+bindInvoiceEdit();
+
+}
