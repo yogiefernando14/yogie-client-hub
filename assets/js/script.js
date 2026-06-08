@@ -181,8 +181,6 @@ link.classList.add("active");
 
 });
 
-}
-
 // =========================
 // CONSOLE SIGNATURE
 // =========================
