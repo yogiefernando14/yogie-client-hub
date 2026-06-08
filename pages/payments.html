@@ -442,4 +442,88 @@ Create First Invoice
 
 </section>
 
+<!-- PAYMENT MODAL -->
+
+<div class="client-modal" id="invoiceModal">
+
+<div class="client-modal-content">
+
+<div class="modal-header">
+
+<h2>Create Invoice</h2>
+
+<button id="closeInvoiceModal">
+×
+</button>
+
+</div>
+
+<form id="invoiceForm">
+
+<div class="form-group">
+
+<label>Client</label>
+
+<input
+type="text"
+id="invoiceClient"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Amount</label>
+
+<input
+type="number"
+id="invoiceAmount"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Status</label>
+
+<select id="invoiceStatus">
+
+<option>Paid</option>
+
+<option>Pending</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Due Date</label>
+
+<input
+type="date"
+id="invoiceDueDate"
+required
+>
+
+</div>
+
+<button
+type="submit"
+class="header-btn primary"
+style="width:100%;"
+>
+
+Save Invoice
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+  
 </main>
