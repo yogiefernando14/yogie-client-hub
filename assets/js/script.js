@@ -1295,15 +1295,12 @@ pendingCard.textContent = pending;
 function updateDashboardStats(){
 
 updateDashboardClients();
-
 updateDashboardRevenue();
-
 updateDashboardActive();
-
 updateDashboardCompleted();
-
 updateDashboardPending();
-
+updateDashboardProjects();
+updateFooterStats();
 }
 
 updateDashboardStats();
@@ -1311,6 +1308,82 @@ window.addEventListener(
 "storage",
 updateDashboardStats
 );
+
+function updateDashboardProjects(){
+
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
+
+const card =
+document.getElementById(
+"dashboard-total-projects"
+);
+
+if(card){
+card.textContent =
+projects.length;
+}
+
+}
+
+function updateFooterStats(){
+
+const clients =
+JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [];
+
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
+
+const invoices =
+JSON.parse(
+localStorage.getItem("yogie_invoices")
+) || [];
+
+let revenue = 0;
+
+invoices.forEach(invoice=>{
+
+if(invoice.status === "Paid"){
+
+revenue += Number(
+invoice.amount.replace(/[^0-9]/g,"")
+) || 0;
+
+}
+
+});
+
+const footerRevenue =
+document.getElementById("footer-revenue");
+
+const footerClients =
+document.getElementById("footer-clients");
+
+const footerProjects =
+document.getElementById("footer-projects");
+
+if(footerRevenue){
+footerRevenue.textContent =
+formatRevenue(revenue);
+}
+
+if(footerClients){
+footerClients.textContent =
+clients.length;
+}
+
+if(footerProjects){
+footerProjects.textContent =
+projects.length;
+}
+
+}
 
 // =========================
 
