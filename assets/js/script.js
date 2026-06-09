@@ -1351,6 +1351,10 @@ updateDashboardPending();
 }
 
 updateDashboardStats();
+window.addEventListener(
+"storage",
+updateDashboardStats
+);
 
 // =========================
 
