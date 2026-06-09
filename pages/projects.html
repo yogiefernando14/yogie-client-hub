@@ -334,7 +334,7 @@ Connect LocalStorage or Supabase database to manage real client projects automat
 
 </p>
 
-<button class="header-btn primary">
+<button class="header-btn primary" id="openProjectModal2">
 
 Add First Project
 
@@ -448,6 +448,30 @@ Save Project
 
 </div>
 
+<script>
+
+const projectModal = document.getElementById("projectModal");
+
+document.getElementById("openProjectModal")?.addEventListener("click", () => {
+  projectModal.classList.add("show");
+});
+
+document.getElementById("openProjectModal2")?.addEventListener("click", () => {
+  projectModal.classList.add("show");
+});
+
+document.getElementById("closeProjectModal")?.addEventListener("click", () => {
+  projectModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === projectModal) {
+    projectModal.classList.remove("show");
+  }
+});
+
+</script>
+  
 <script src="../assets/js/script.js"></script>
 
 </body>
