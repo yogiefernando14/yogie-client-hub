@@ -2551,19 +2551,18 @@ document.querySelectorAll('.nav a').forEach(link => {
     });
 });
 
-
 /* =========================
 FILE STORAGE SYSTEM
 ========================= */
 
 let files =
 JSON.parse(
-localStorage.getItem(“yogie_files”)
+localStorage.getItem("yogie_files")
 ) || [];
 
 function saveFiles(){
 localStorage.setItem(
-“yogie_files”,
+"yogie_files",
 JSON.stringify(files)
 );
 }
@@ -2575,28 +2574,28 @@ LOAD CLIENTS
 function loadFileClientOptions(){
 
 const select =
-document.getElementById(“fileClient”);
+document.getElementById("fileClient");
 
 const filter =
-document.getElementById(“fileClientFilter”);
+document.getElementById("fileClientFilter");
 
 if(!select) return;
 
 const clients =
 JSON.parse(
-localStorage.getItem(“yogie_clients”)
+localStorage.getItem("yogie_clients")
 ) || [];
 
-select.innerHTML = “”;
+select.innerHTML = "";
+
 if(filter){
 filter.innerHTML =
-‘All Clients’;
+'<option value="">All Clients</option>';
 }
 
 clients.forEach(client=>{
 
 select.innerHTML += `
-
 <option value="${client.name}">
 ${client.name}
 </option>
@@ -2604,7 +2603,6 @@ ${client.name}
 
 if(filter){
 filter.innerHTML += `
-
 <option value="${client.name}">
 ${client.name}
 </option>
@@ -2622,16 +2620,16 @@ FILE STATS
 function updateFilesStats(){
 
 const total =
-document.getElementById(“files-total”);
+document.getElementById("files-total");
 
 const docs =
-document.getElementById(“files-documents”);
+document.getElementById("files-documents");
 
 const assets =
-document.getElementById(“files-assets”);
+document.getElementById("files-assets");
 
 const storage =
-document.getElementById(“files-storage”);
+document.getElementById("files-storage");
 
 if(total){
 total.textContent =
@@ -2640,23 +2638,19 @@ files.length;
 
 if(docs){
 
-const count =
-files.filter(file=>
-[“PDF”,“DOCX”].includes(file.type)
+docs.textContent =
+files.filter(file =>
+["PDF","DOCX"].includes(file.type)
 ).length;
-
-docs.textContent = count;
 
 }
 
 if(assets){
 
-const count =
-files.filter(file=>
-[“PNG”,“JPG”].includes(file.type)
+assets.textContent =
+files.filter(file =>
+["PNG","JPG"].includes(file.type)
 ).length;
-
-assets.textContent = count;
 
 }
 
@@ -2670,7 +2664,7 @@ if(storage){
 
 storage.textContent =
 (totalSize / 1024 / 1024)
-.toFixed(2) + “ MB”;
+.toFixed(2) + " MB";
 
 }
 
@@ -2683,7 +2677,6 @@ CREATE FILE ROW
 function createFileRow(file){
 
 return `
-
 <tr>
 <td>${file.name}</td>
 <td>${file.client}</td>
@@ -2691,16 +2684,17 @@ return `
 <td>${(file.size/1024/1024).toFixed(2)} MB</td>
 <td>${file.date}</td>
 <td>
+
 <div class="table-buttons">
 
 <button
-class=“mini-btn delete-file”
-data-id=”${file.id}”
-
+class="mini-btn delete-file"
+data-id="${file.id}">
 Delete
-
 </button>
+
 </div>
+
 </td>
 </tr>
 `;
@@ -2715,12 +2709,12 @@ function renderFiles(){
 
 const tbody =
 document.getElementById(
-“filesTableBody”
+"filesTableBody"
 );
 
 if(!tbody) return;
 
-tbody.innerHTML = “”;
+tbody.innerHTML = "";
 
 files.forEach(file=>{
 
@@ -2741,16 +2735,16 @@ DELETE FILE
 function bindDeleteFiles(){
 
 document
-.querySelectorAll(”.delete-file”)
+.querySelectorAll(".delete-file")
 .forEach(btn=>{
 
-btn.addEventListener(“click”,()=>{
+btn.addEventListener("click",()=>{
 
 const id =
 Number(btn.dataset.id);
 
 if(
-!confirm(“Delete file?”)
+!confirm("Delete file?")
 ) return;
 
 files =
@@ -2772,27 +2766,22 @@ UPLOAD FILE
 ========================= */
 
 const fileForm =
-document.getElementById(“fileForm”);
+document.getElementById("fileForm");
 
 if(fileForm){
 
 fileForm.addEventListener(
-“submit”,
+"submit",
 (e)=>{
 
 e.preventDefault();
 
-const input =
-document.getElementById(
-“fileInput”
-);
-
 const uploaded =
-input.files[0];
+document.getElementById(
+"fileInput"
+).files[0];
 
-if(!uploaded){
-return;
-}
+if(!uploaded) return;
 
 files.push({
 
@@ -2800,17 +2789,17 @@ id: Date.now(),
 
 name:
 document.getElementById(
-“fileName”
+"fileName"
 ).value,
 
 client:
 document.getElementById(
-“fileClient”
+"fileClient"
 ).value,
 
 type:
 document.getElementById(
-“fileType”
+"fileType"
 ).value,
 
 size:
@@ -2818,7 +2807,7 @@ uploaded.size,
 
 date:
 new Date()
-.toLocaleDateString(“id-ID”)
+.toLocaleDateString("id-ID")
 
 });
 
@@ -2826,14 +2815,18 @@ saveFiles();
 renderFiles();
 
 document
-.getElementById(“fileModal”)
-.classList.remove(“show”);
+.getElementById("fileModal")
+.classList.remove("show");
 
 fileForm.reset();
 
 });
 
 }
+
+/* =========================
+INITIALIZE
+========================= */
 
 loadFileClientOptions();
 renderFiles();
