@@ -956,6 +956,8 @@ client=>client.id!==id
 
 saveClients();
 
+  loadProjectClientOptions();
+
 renderClients();
 
 updateRevenue();
