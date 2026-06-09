@@ -1947,6 +1947,38 @@ projectModal.classList.add(
 }
 
 // =========================
+// LOAD CLIENTS TO PROJECT SELECT
+// =========================
+
+function loadProjectClientOptions(){
+
+const select =
+document.getElementById("projectClient");
+
+if(!select) return;
+
+const clients =
+JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [];
+
+select.innerHTML = "";
+
+clients.forEach(client=>{
+
+select.innerHTML += `
+<option value="${client.name}">
+${client.name}
+</option>
+`;
+
+});
+
+}
+
+loadProjectClientOptions();
+
+// =========================
 // PAYMENT STORAGE
 // =========================
 
