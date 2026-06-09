@@ -3116,3 +3116,52 @@ renderNotes();
 });
 
 }
+
+// =========================
+// EDIT NOTE
+// =========================
+
+function bindEditNote(){
+
+document
+.querySelectorAll(".edit-note")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+Number(btn.dataset.id);
+
+const note =
+notes.find(
+n=>n.id===id
+);
+
+if(!note) return;
+
+editingNoteId = id;
+
+document.getElementById(
+"noteTitle"
+).value =
+note.title;
+
+document.getElementById(
+"noteCategory"
+).value =
+note.category;
+
+document.getElementById(
+"noteContent"
+).value =
+note.content;
+
+document
+.getElementById("noteModal")
+.classList.add("show");
+
+});
+
+});
+
+}
