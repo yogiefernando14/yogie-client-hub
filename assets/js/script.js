@@ -2287,7 +2287,12 @@ invoiceForm.addEventListener(
 (e)=>{
 
 e.preventDefault();
-
+if(
+!document.getElementById("invoiceProject").value
+){
+alert("Select project first");
+return;
+}
 const data = {
 
 invoice:
