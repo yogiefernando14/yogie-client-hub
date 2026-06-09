@@ -1881,6 +1881,10 @@ id:Date.now(),
 ...data
 
 });
+addActivity(
+"Project Created",
+`${data.name} created`
+);
 
 }
 
