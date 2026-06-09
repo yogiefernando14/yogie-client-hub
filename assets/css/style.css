@@ -663,6 +663,8 @@ padding:28px;
 transition:.35s;
 cursor:pointer;
 backdrop-filter:blur(20px);
+color:#fff;
+text-decoration:none;
 }
 
 .action-card:hover{
@@ -673,17 +675,20 @@ border-color:rgba(255,255,255,.15);
 .action-card i{
 font-size:1.6rem;
 margin-bottom:18px;
+color:#fff;
 }
 
 .action-card h3{
 margin-bottom:10px;
 font-size:1.05rem;
+color:#fff;
 }
 
 .action-card p{
 color:var(--muted);
 line-height:1.7;
 font-size:.9rem;
+color:var(--muted);
 }
 
 /* =========================
@@ -1455,23 +1460,4 @@ border:1px solid var(--border);
 background:rgba(255,255,255,.03);
 color:white;
 outline:none;
-}
-
-.action-card,
-.action-card:link,
-.action-card:visited {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.action-card h3 {
-    color: #ffffff;
-}
-
-.action-card p {
-    color: rgba(255,255,255,0.7);
-}
-
-.action-card i {
-    color: #ffffff;
 }
