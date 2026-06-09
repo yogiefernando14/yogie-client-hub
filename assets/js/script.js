@@ -3083,3 +3083,36 @@ noteForm.reset();
 });
 
 }
+
+// =========================
+// DELETE NOTE
+// =========================
+
+function bindDeleteNote(){
+
+document
+.querySelectorAll(".delete-note")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id =
+Number(btn.dataset.id);
+
+if(
+!confirm("Delete note?")
+) return;
+
+notes =
+notes.filter(
+note=>note.id!==id
+);
+
+saveNotes();
+renderNotes();
+
+});
+
+});
+
+}
