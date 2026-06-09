@@ -3165,3 +3165,42 @@ document
 });
 
 }
+
+// =========================
+// NOTES SEARCH
+// =========================
+
+const notesSearch =
+document.getElementById(
+"notesSearch"
+);
+
+if(notesSearch){
+
+notesSearch.addEventListener(
+"keyup",
+()=>{
+
+const value =
+notesSearch.value.toLowerCase();
+
+const rows =
+document.querySelectorAll(
+"#notesTableBody tr"
+);
+
+rows.forEach(row=>{
+
+const text =
+row.innerText.toLowerCase();
+
+row.style.display =
+text.includes(value)
+? ""
+: "none";
+
+});
+
+});
+
+}
