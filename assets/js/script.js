@@ -833,8 +833,6 @@ createClientRow(client);
 
 updateClientStats();
 
-bindDeleteButtons();
-
 }
 
 // =========================
