@@ -962,6 +962,8 @@ renderClients();
 
 updateRevenue();
 
+updateDashboardStats();
+
 });
 
 });
@@ -1028,6 +1030,8 @@ modal.classList.add("show");
 // =========================
 
 if(clientForm){
+const clientForm =
+document.getElementById("clientForm");
 
 clientForm.addEventListener("submit",(e)=>{
 
