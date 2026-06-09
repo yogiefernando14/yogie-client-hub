@@ -464,7 +464,7 @@ return "Rp " + value.toLocaleString("id-ID");
 // AUTO REVENUE COUNTER
 // =========================
 
-const revenueElement = document.querySelector(".revenue-counter");
+const revenueElement = document.querySelector("dashboard-counter");
 if(revenueElement){
 let value = 0;
 const target = 32000000;
