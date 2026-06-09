@@ -2191,9 +2191,8 @@ createInvoiceRow(invoice);
 });
 
 updatePaymentStats();
-
+updateDashboardStats();
 bindInvoiceDelete();
-
 bindInvoiceEdit();
 
 }
