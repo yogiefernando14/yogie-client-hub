@@ -1939,6 +1939,12 @@ p=>p.id===id
 );
 
 if(!project) return;
+addActivity(
+"Project Deleted",
+`${project.name} removed`
+);
+}
+  
   loadProjectClientOptions();
 document.getElementById(
 "projectClient"
