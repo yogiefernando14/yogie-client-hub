@@ -2440,13 +2440,9 @@ saveInvoices();
 renderInvoices();
 
 invoiceModal.classList.remove(
-
 "show"
-
 );
-
 invoiceForm.reset();
-
 });
 
 }
@@ -2516,33 +2512,35 @@ document.getElementById(
 // =========================
 
 function bindInvoiceDelete(){
-
 document
-
 .querySelectorAll(".delete-invoice")
-
 .forEach(btn=>{
-
 btn.addEventListener("click",()=>{
 
 const id =
-
 Number(btn.dataset.id);
 
+  const invoice =
+invoices.find(
+i=>i.id===id
+);
+
 if(
-
 !confirm(
-
 "Delete invoice?"
-
 )
 
 ) return;
+if(invoice){
+addActivity(
+"Invoice Deleted",
+`${invoice.invoice} removed`
+);
 
+}
+  
 invoices =
-
 invoices.filter(
-
 i=>i.id!==id
 
 );
