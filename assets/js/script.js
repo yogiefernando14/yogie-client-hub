@@ -1030,6 +1030,12 @@ c=>c.id===id
 );
 
 if(!client) return;
+addActivity(
+"Client Deleted",
+`${client.name} removed`
+);
+}
+
 
 editingClientId = id;
 
