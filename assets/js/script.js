@@ -2694,11 +2694,9 @@ saveInvoices();
 renderInvoices();
 
 document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function(e){
 
-        const href = this.href;
-
-        if (!href) return;
+        const href = this.getAttribute('href');
 
         e.preventDefault();
 
@@ -2706,7 +2704,7 @@ document.querySelectorAll('.nav a').forEach(link => {
 
         setTimeout(() => {
             window.location.href = href;
-        }, 250);
+        }, 300);
 
     });
 });
