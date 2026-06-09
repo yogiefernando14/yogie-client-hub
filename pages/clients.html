@@ -144,14 +144,14 @@ Add Client
 
 <div class="toolbar-right">
 
-<select class="filter-select">
+<select class="filter-select" id="clientStatusFilter">
 <option>All Status</option>
 <option>Active</option>
 <option>Pending</option>
 <option>Completed</option>
 </select>
 
-<select class="filter-select">
+<select class="filter-select" id="clientPackageFilter">
 <option>All Packages</option>
 <option>Landing Page</option>
 <option>Business Website</option>
@@ -171,12 +171,12 @@ Add Client
 
 <div class="table-actions">
 
-<button class="table-action-btn">
+<button class="table-action-btn" id="filterClientsBtn">
 <i class="fa-solid fa-filter"></i>
 Filter
 </button>
 
-<button class="table-action-btn">
+<button class="table-action-btn" id="refreshClientsBtn">
 <i class="fa-solid fa-rotate"></i>
 Refresh
 </button>
