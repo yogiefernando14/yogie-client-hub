@@ -2381,6 +2381,34 @@ invoiceForm.reset();
 }
 
 // =========================
+// LOAD PROJECTS TO INVOICE SELECT
+// =========================
+
+function loadProjectOptions(){
+
+const select =
+document.getElementById("invoiceProject");
+
+if(!select) return;
+
+select.innerHTML =
+'<option value="">Select Project</option>';
+
+projects.forEach(project=>{
+
+select.innerHTML += `
+<option value="${project.name}">
+${project.name}
+</option>
+`;
+
+});
+
+}
+
+loadProjectOptions();
+
+// =========================
 
 // DELETE INVOICE
 
