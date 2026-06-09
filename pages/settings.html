@@ -1,1 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Settings</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="background-glow">
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+</div>
+
+<div class="grid-bg"></div>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+</div>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<div class="logo">
+<span>YF</span> Client Hub
+</div>
+
+<nav class="nav">
+
+<a href="../index.html">
+<i class="fa-solid fa-table-columns"></i>
+<span>Dashboard</span>
+</a>
+
+<a href="clients.html">
+<i class="fa-solid fa-users"></i>
+<span>Clients</span>
+</a>
+
+<a href="projects.html">
+<i class="fa-solid fa-folder-open"></i>
+<span>Projects</span>
+</a>
+
+<a href="payments.html">
+<i class="fa-solid fa-credit-card"></i>
+<span>Payments</span>
+</a>
+
+<a href="files.html">
+<i class="fa-solid fa-file"></i>
+<span>Files</span>
+</a>
+
+<a href="notes.html">
+<i class="fa-solid fa-note-sticky"></i>
+<span>Notes</span>
+</a>
+
+<a href="analytics.html">
+<i class="fa-solid fa-chart-line"></i>
+<span>Analytics</span>
+</a>
+
+<a href="settings.html" class="active">
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</a>
+
+</nav>
+
+<div class="sidebar-footer">
+
+<div class="mini-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Owner</small>
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="topbarSettingsSearch"
+placeholder="Search settings..."
+>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="icon-btn">
+<i class="fa-regular fa-bell"></i>
+</button>
+
+<button class="icon-btn">
+<i class="fa-regular fa-envelope"></i>
+</button>
+
+<div class="topbar-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Administrator</small>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="settings-page">
+
+<div class="page-top">
+
+<div class="page-title-group">
+
+<span class="page-label">
+SYSTEM SETTINGS
+</span>
+
+<h1>Settings</h1>
+
+<p>
+Manage profile, business information and application preferences.
+</p>
+
+</div>
+
+<div class="page-actions">
+
+<button class="header-btn" id="resetSettingsBtn">
+
+<i class="fa-solid fa-rotate-left"></i>
+
+Reset
+
+</button>
+
+<button class="header-btn primary" id="saveSettingsBtn">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Save Settings
+
+</button>
+
+</div>
+
+</div>
+
+<section class="project-stats">
+
+<div class="client-stat-card">
+
+<span>Profile</span>
+
+<h2 id="settings-profileStatus">
+Ready
+</h2>
+
+<p>
+Account setup
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Business</span>
+
+<h2 id="settings-businessStatus">
+Ready
+</h2>
+
+<p>
+Business profile
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Database</span>
+
+<h2 id="settings-databaseStatus">
+Local
+</h2>
+
+<p>
+Storage mode
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Version</span>
+
+<h2 id="settings-version">
+1.0
+</h2>
+
+<p>
+Current build
+</p>
+
+</div>
+
+</section>
+
+<section class="clients-table-wrapper">
+
+<div class="table-header">
+
+<h2>Profile Settings</h2>
+
+</div>
+
+<div class="clients-table-container">
+
+<div class="form-group">
+<label>Owner Name</label>
+<input type="text" id="settingsOwnerName">
+</div>
+
+<div class="form-group">
+<label>Business Name</label>
+<input type="text" id="settingsBusinessName">
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="settingsEmail">
+</div>
+
+<div class="form-group">
+<label>Phone</label>
+<input type="text" id="settingsPhone">
+</div>
+
+</div>
+
+</section>
+
+<section class="clients-table-wrapper">
+
+<div class="table-header">
+
+<h2>Application Settings</h2>
+
+</div>
+
+<div class="clients-table-container">
+
+<div class="form-group">
+
+<label>Theme</label>
+
+<select id="settingsTheme">
+
+<option>Dark</option>
+<option>Light</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Default Currency</label>
+
+<select id="settingsCurrency">
+
+<option>IDR</option>
+<option>USD</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Date Format</label>
+
+<select id="settingsDateFormat">
+
+<option>DD/MM/YYYY</option>
+<option>MM/DD/YYYY</option>
+
+</select>
+
+</div>
+
+</section>
+
+<section class="client-activity-section">
+
+<div class="activity-header">
+
+<h2>Recent Settings Activity</h2>
+
+</div>
+
+<div class="activity-list" id="settingsActivityList">
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Theme Updated</h4>
+
+<p>Dark mode enabled successfully.</p>
+
+</div>
+
+<span>5m ago</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Backup Created</h4>
+
+<p>Client Hub data exported.</p>
+
+</div>
+
+<span>1h ago</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Profile Updated</h4>
+
+<p>Administrator information changed.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Security Updated</h4>
+
+<p>Password settings modified.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="clients-empty-state" id="settingsEmptyState">
+
+<div class="empty-card">
+
+<i class="fa-solid fa-sliders"></i>
+
+<h2>Settings Center Ready</h2>
+
+<p>
+
+Configure appearance, security and system preferences using LocalStorage or Supabase.
+
+</p>
+
+<button class="header-btn primary" id="openSettingsModal2">
+
+Edit Settings
+
+</button>
+
+</div>
+
+</section>
+
+<!-- SETTINGS MODAL -->
+
+<div class="client-modal" id="settingsModal">
+
+<div class="client-modal-content">
+
+<div class="modal-header">
+
+<h2>System Settings</h2>
+
+<button id="closeSettingsModal">
+×
+</button>
+
+</div>
+
+<form id="settingsForm">
+
+<div class="form-group">
+
+<label>Agency Name</label>
+
+<input
+type="text"
+id="agencyName"
+placeholder="Yogie Studio"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Administrator</label>
+
+<input
+type="text"
+id="adminName"
+placeholder="Yogie Fernando"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="adminEmail"
+placeholder="admin@email.com"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Theme</label>
+
+<select id="themeMode">
+
+<option>Dark</option>
+
+<option>Light</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Currency</label>
+
+<select id="currencySetting">
+
+<option>IDR</option>
+
+<option>USD</option>
+
+<option>SGD</option>
+
+</select>
+
+</div>
+
+<button
+type="submit"
+class="header-btn primary"
+style="width:100%;"
+>
+
+Save Settings
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- settingsModal -->
+
+</div>
+
+<!-- settings-page -->
+
+</main>
+
+<!-- main -->
+
+</div>
+
+<!-- app -->
+
+<script>
+
+const settingsModal = document.getElementById("settingsModal");
+
+document.getElementById("openSettingsModal")?.addEventListener("click", () => {
+  settingsModal.classList.add("show");
+});
+
+document.getElementById("openSettingsModal2")?.addEventListener("click", () => {
+  settingsModal.classList.add("show");
+});
+
+document.getElementById("closeSettingsModal")?.addEventListener("click", () => {
+  settingsModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === settingsModal) {
+    settingsModal.classList.remove("show");
+  }
+});
+
+</script>
+
+<script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>
