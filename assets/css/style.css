@@ -1456,3 +1456,22 @@ background:rgba(255,255,255,.03);
 color:white;
 outline:none;
 }
+
+.action-card,
+.action-card:link,
+.action-card:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.action-card h3 {
+    color: #ffffff;
+}
+
+.action-card p {
+    color: rgba(255,255,255,0.7);
+}
+
+.action-card i {
+    color: #ffffff;
+}
