@@ -384,6 +384,30 @@ Save Client
 
 </div>
 
+<script>
+
+const clientModal = document.getElementById("clientModal");
+
+document.getElementById("openClientModal")?.addEventListener("click", () => {
+  clientModal.classList.add("show");
+});
+
+document.getElementById("openClientModal2")?.addEventListener("click", () => {
+  clientModal.classList.add("show");
+});
+
+document.getElementById("closeModal")?.addEventListener("click", () => {
+  clientModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === clientModal) {
+    clientModal.classList.remove("show");
+  }
+});
+
+</script>
+  
 <script src="../assets/js/script.js"></script>
 
 </body>
