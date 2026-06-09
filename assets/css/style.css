@@ -1461,26 +1461,3 @@ background:rgba(255,255,255,.03);
 color:white;
 outline:none;
 }
-
-body{
-    opacity:0;
-    transform:translateY(10px);
-    animation:pageEnter .4s ease forwards;
-}
-
-body.page-exit{
-    opacity:0;
-    transform:translateY(-10px);
-    transition:all .3s ease;
-}
-
-@keyframes pageEnter{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
