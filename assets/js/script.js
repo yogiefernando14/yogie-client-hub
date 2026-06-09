@@ -838,36 +838,6 @@ bindDeleteButtons();
 }
 
 // =========================
-// DELETE CLIENT
-// =========================
-
-function bindDeleteButtons(){
-
-document
-.querySelectorAll(".delete-client")
-.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const id =
-Number(btn.dataset.id);
-
-clients =
-clients.filter(
-client=>client.id!==id
-);
-
-saveClients();
-
-renderClients();
-
-});
-
-});
-
-}
-
-// =========================
 // ADD DUMMY CLIENT
 // =========================
 
@@ -1172,6 +1142,8 @@ saveClients();
 renderClients();
 
 updateRevenue();
+
+updateDashboardStats();
 
 modal.classList.remove("show");
 
