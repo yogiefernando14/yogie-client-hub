@@ -1236,12 +1236,14 @@ formatRevenue(total);
 
 function updateDashboardCompleted(){
 
-const clients = getClients();
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
 
 const completed =
-clients.filter(
-client =>
-client.status === "Completed"
+projects.filter(
+project => project.status === "Completed"
 ).length;
 
 const completedCard =
@@ -1250,10 +1252,7 @@ document.querySelector(
 );
 
 if(completedCard){
-
-completedCard.textContent =
-completed;
-
+completedCard.textContent = completed;
 }
 
 }
@@ -1264,12 +1263,14 @@ completed;
 
 function updateDashboardPending(){
 
-const clients = getClients();
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
 
 const pending =
-clients.filter(
-client =>
-client.status === "Pending"
+projects.filter(
+project => project.status === "Pending"
 ).length;
 
 const pendingCard =
@@ -1278,10 +1279,7 @@ document.querySelector(
 );
 
 if(pendingCard){
-
-pendingCard.textContent =
-pending;
-
+pendingCard.textContent = pending;
 }
 
 }
