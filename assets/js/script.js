@@ -1029,10 +1029,9 @@ modal.classList.add("show");
 // OVERRIDE FORM SAVE
 // =========================
 
-if(clientForm){
 const clientForm =
 document.getElementById("clientForm");
-
+if(clientForm){
 clientForm.addEventListener("submit",(e)=>{
 
 e.preventDefault();
