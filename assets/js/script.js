@@ -2550,3 +2550,290 @@ document.querySelectorAll('.nav a').forEach(link => {
 
     });
 });
+
+
+/* =========================
+FILE STORAGE SYSTEM
+========================= */
+
+let files =
+JSON.parse(
+localStorage.getItem(“yogie_files”)
+) || [];
+
+function saveFiles(){
+localStorage.setItem(
+“yogie_files”,
+JSON.stringify(files)
+);
+}
+
+/* =========================
+LOAD CLIENTS
+========================= */
+
+function loadFileClientOptions(){
+
+const select =
+document.getElementById(“fileClient”);
+
+const filter =
+document.getElementById(“fileClientFilter”);
+
+if(!select) return;
+
+const clients =
+JSON.parse(
+localStorage.getItem(“yogie_clients”)
+) || [];
+
+select.innerHTML = “”;
+if(filter){
+filter.innerHTML =
+‘All Clients’;
+}
+
+clients.forEach(client=>{
+
+select.innerHTML += `
+
+<option value="${client.name}">
+${client.name}
+</option>
+`;
+
+if(filter){
+filter.innerHTML += `
+
+<option value="${client.name}">
+${client.name}
+</option>
+`;
+}
+
+});
+
+}
+
+/* =========================
+FILE STATS
+========================= */
+
+function updateFilesStats(){
+
+const total =
+document.getElementById(“files-total”);
+
+const docs =
+document.getElementById(“files-documents”);
+
+const assets =
+document.getElementById(“files-assets”);
+
+const storage =
+document.getElementById(“files-storage”);
+
+if(total){
+total.textContent =
+files.length;
+}
+
+if(docs){
+
+const count =
+files.filter(file=>
+[“PDF”,“DOCX”].includes(file.type)
+).length;
+
+docs.textContent = count;
+
+}
+
+if(assets){
+
+const count =
+files.filter(file=>
+[“PNG”,“JPG”].includes(file.type)
+).length;
+
+assets.textContent = count;
+
+}
+
+let totalSize = 0;
+
+files.forEach(file=>{
+totalSize += file.size;
+});
+
+if(storage){
+
+storage.textContent =
+(totalSize / 1024 / 1024)
+.toFixed(2) + “ MB”;
+
+}
+
+}
+
+/* =========================
+CREATE FILE ROW
+========================= */
+
+function createFileRow(file){
+
+return `
+
+<tr>
+<td>${file.name}</td>
+<td>${file.client}</td>
+<td>${file.type}</td>
+<td>${(file.size/1024/1024).toFixed(2)} MB</td>
+<td>${file.date}</td>
+<td>
+<div class="table-buttons">
+
+<button
+class=“mini-btn delete-file”
+data-id=”${file.id}”
+
+Delete
+
+</button>
+</div>
+</td>
+</tr>
+`;
+
+}
+
+/* =========================
+RENDER FILES
+========================= */
+
+function renderFiles(){
+
+const tbody =
+document.getElementById(
+“filesTableBody”
+);
+
+if(!tbody) return;
+
+tbody.innerHTML = “”;
+
+files.forEach(file=>{
+
+tbody.innerHTML +=
+createFileRow(file);
+
+});
+
+updateFilesStats();
+bindDeleteFiles();
+
+}
+
+/* =========================
+DELETE FILE
+========================= */
+
+function bindDeleteFiles(){
+
+document
+.querySelectorAll(”.delete-file”)
+.forEach(btn=>{
+
+btn.addEventListener(“click”,()=>{
+
+const id =
+Number(btn.dataset.id);
+
+if(
+!confirm(“Delete file?”)
+) return;
+
+files =
+files.filter(
+file=>file.id!==id
+);
+
+saveFiles();
+renderFiles();
+
+});
+
+});
+
+}
+
+/* =========================
+UPLOAD FILE
+========================= */
+
+const fileForm =
+document.getElementById(“fileForm”);
+
+if(fileForm){
+
+fileForm.addEventListener(
+“submit”,
+(e)=>{
+
+e.preventDefault();
+
+const input =
+document.getElementById(
+“fileInput”
+);
+
+const uploaded =
+input.files[0];
+
+if(!uploaded){
+return;
+}
+
+files.push({
+
+id: Date.now(),
+
+name:
+document.getElementById(
+“fileName”
+).value,
+
+client:
+document.getElementById(
+“fileClient”
+).value,
+
+type:
+document.getElementById(
+“fileType”
+).value,
+
+size:
+uploaded.size,
+
+date:
+new Date()
+.toLocaleDateString(“id-ID”)
+
+});
+
+saveFiles();
+renderFiles();
+
+document
+.getElementById(“fileModal”)
+.classList.remove(“show”);
+
+fileForm.reset();
+
+});
+
+}
+
+loadFileClientOptions();
+renderFiles();
