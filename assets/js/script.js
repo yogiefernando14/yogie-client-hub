@@ -3003,3 +3003,83 @@ bindDeleteNote();
 bindEditNote();
 
 }
+
+// =========================
+// SAVE / EDIT NOTE
+// =========================
+
+let editingNoteId = null;
+
+const noteForm =
+document.getElementById("noteForm");
+
+if(noteForm){
+
+noteForm.addEventListener(
+"submit",
+(e)=>{
+
+e.preventDefault();
+
+const data = {
+
+title:
+document.getElementById(
+"noteTitle"
+).value,
+
+category:
+document.getElementById(
+"noteCategory"
+).value,
+
+content:
+document.getElementById(
+"noteContent"
+).value,
+
+date:
+new Date()
+.toLocaleDateString("id-ID")
+
+};
+
+if(editingNoteId){
+
+const index =
+notes.findIndex(
+n=>n.id===editingNoteId
+);
+
+notes[index] = {
+
+...notes[index],
+...data
+
+};
+
+editingNoteId = null;
+
+}else{
+
+notes.push({
+
+id:Date.now(),
+...data
+
+});
+
+}
+
+saveNotes();
+renderNotes();
+
+document
+.getElementById("noteModal")
+.classList.remove("show");
+
+noteForm.reset();
+
+});
+
+}
