@@ -1594,45 +1594,27 @@ Delete
 }
 
 // =========================
-
 // RENDER PROJECTS
-
 // =========================
 
 function renderProjects(){
-
 const tbody =
-
-document.querySelector(
-
-".projects-page .clients-table tbody"
-
+document.getElementById(
+"projectsTableBody"
 );
-
 if(!tbody) return;
-
 tbody.innerHTML = "";
-
 projects.forEach(project=>{
-
 tbody.innerHTML +=
-
 createProjectRow(project);
-
 });
-
 updateProjectStats();
-
 bindProjectDelete();
-
 bindProjectEdit();
-
 }
 
 // =========================
-
 // DELETE PROJECT
-
 // =========================
 
 function bindProjectDelete(){
