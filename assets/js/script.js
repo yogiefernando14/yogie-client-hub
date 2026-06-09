@@ -464,33 +464,20 @@ return "Rp " + value.toLocaleString("id-ID");
 // AUTO REVENUE COUNTER
 // =========================
 
-const revenueElement=[...document.querySelectorAll(".stat-card h2")]
-.find(el=>el.textContent.includes("Rp"));
-
+const revenueElement = document.querySelector(".revenue-counter");
 if(revenueElement){
-
-let value=0;
-
-const target=32000000;
-
-const interval=setInterval(()=>{
-
-value+=650000;
-
-if(value>=target){
-
-value=target;
-clearInterval(interval);
-
+let value = 0;
+const target = 32000000;
+const interval = setInterval(()=>{
+value += 650000;
+if(value >= target){
+value = target;
+clearInterval(interval)
 }
-
-revenueElement.textContent=
-formatRevenue(value);
-
+revenueElement.textContent = formatRevenue(value);
 },25);
 
 }
-
 // =========================
 // PAGE LOADER
 // =========================
