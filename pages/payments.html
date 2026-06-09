@@ -235,7 +235,7 @@ Generated invoices
 <i class="fa-solid fa-magnifying-glass"></i>
 
 <input
-type="text"
+type="text" id="paymentSearch"
 placeholder="Search invoice..."
 >
 
@@ -243,7 +243,7 @@ placeholder="Search invoice..."
 
 <div class="toolbar-right">
 
-<select class="filter-select">
+<select class="filter-select" id="paymentStatusFilter">
 
 <option>All Status</option>
 <option>Paid</option>
@@ -264,7 +264,7 @@ placeholder="Search invoice..."
 
 <div class="table-actions">
 
-<button class="table-action-btn">
+<button class="table-action-btn" id="refreshPaymentsBtn">
 Refresh
 </button>
 
@@ -296,7 +296,7 @@ Refresh
 
 </thead>
 
-<tbody>
+<tbody id="paymentsTableBody">
 
 </tbody>
 
@@ -314,7 +314,7 @@ Refresh
 
 </div>
 
-<div class="activity-list">
+<div class="activity-list" id="paymentActivityList">
 
 <div class="activity-item">
 
@@ -384,7 +384,7 @@ Refresh
 
 </section>
 
-<section class="clients-empty-state">
+<section class="clients-empty-state" id="paymentsEmptyState">
 
 <div class="empty-card">
 
@@ -398,7 +398,7 @@ Create invoices, track payments and monitor agency revenue automatically using L
 
 </p>
 
-<button class="header-btn primary">
+<button class="header-btn primary" id="openInvoiceModal2">
 
 Create First Invoice
 
@@ -474,6 +474,9 @@ id="invoiceDueDate"
 required
 >
 
+<select id="invoiceProject">
+</select>
+  
 </div>
 
 <button
