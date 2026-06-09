@@ -683,6 +683,36 @@ JSON.parse(
 localStorage.getItem("yogie_clients")
 ) || [];
 
+/* =========================
+ACTIVITY STORAGE
+========================= */
+
+let activityLog =
+JSON.parse(
+localStorage.getItem("yogie_activity")
+) || [];
+function saveActivity(){
+localStorage.setItem(
+"yogie_activity",
+JSON.stringify(activityLog)
+);
+}
+function addActivity(
+title,
+description
+){
+activityLog.unshift({
+title,
+description,
+time:
+new Date().toLocaleString("id-ID")
+});
+if(activityLog.length > 100){
+activityLog.length = 100;
+}
+saveActivity();
+}
+
 // =========================
 // SAVE CLIENTS
 // =========================
