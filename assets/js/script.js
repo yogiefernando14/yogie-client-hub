@@ -3434,3 +3434,68 @@ if(currency) currency.value = settings.currency;
 if(dateFormat) dateFormat.value = settings.dateFormat;
 
 }
+
+const saveSettingsBtn =
+document.getElementById("saveSettingsBtn");
+
+if(saveSettingsBtn){
+
+saveSettingsBtn.addEventListener("click",()=>{
+
+settings = {
+
+ownerName:
+document.getElementById("settingsOwnerName").value,
+
+businessName:
+document.getElementById("settingsBusinessName").value,
+
+email:
+document.getElementById("settingsEmail").value,
+
+phone:
+document.getElementById("settingsPhone").value,
+
+theme:
+document.getElementById("settingsTheme").value,
+
+currency:
+document.getElementById("settingsCurrency").value,
+
+dateFormat:
+document.getElementById("settingsDateFormat").value
+
+};
+
+saveSettings();
+
+alert("Settings saved");
+
+});
+
+}
+
+const resetSettingsBtn =
+document.getElementById("resetSettingsBtn");
+
+if(resetSettingsBtn){
+
+resetSettingsBtn.addEventListener("click",()=>{
+
+if(!confirm("Reset settings?"))
+return;
+
+localStorage.removeItem(
+"yogie_settings"
+);
+
+location.reload();
+
+});
+
+}
+
+window.addEventListener(
+"load",
+loadSettings
+);
