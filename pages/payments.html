@@ -509,6 +509,28 @@ Save Invoice
 
 <!-- app -->
 
+<script>
+const invoiceModal = document.getElementById("invoiceModal");
+
+document.getElementById("openInvoiceModal")?.addEventListener("click", () => {
+  invoiceModal.classList.add("show");
+});
+
+document.getElementById("openInvoiceModal2")?.addEventListener("click", () => {
+  invoiceModal.classList.add("show");
+});
+
+document.getElementById("closeInvoiceModal")?.addEventListener("click", () => {
+  invoiceModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === invoiceModal) {
+    invoiceModal.classList.remove("show");
+  }
+});
+</script>
+
 <script src="../assets/js/script.js"></script>
 
 </body>
