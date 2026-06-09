@@ -1168,12 +1168,14 @@ clients.length;
 
 function updateDashboardActive(){
 
-const clients = getClients();
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
 
 const active =
-clients.filter(
-client =>
-client.status === "Active"
+projects.filter(
+project => project.status === "Active"
 ).length;
 
 const activeCard =
@@ -1182,9 +1184,7 @@ document.querySelector(
 );
 
 if(activeCard){
-
 activeCard.textContent = active;
-
 }
 
 }
