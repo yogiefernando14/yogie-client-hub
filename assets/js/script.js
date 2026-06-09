@@ -2526,6 +2526,11 @@ document.getElementById(
 
 invoice.dueDate;
 
+  document.getElementById(
+"invoiceProject"
+).value =
+invoice.project || "";  
+
 invoiceModal.classList.add(
 
 "show"
