@@ -1059,33 +1059,28 @@ clientForm.reset();
 
 function updateRevenue(){
 
+const revenue =
+document.getElementById("client-revenue");
+
+if(!revenue) return;
+
 let total = 0;
 
 clients.forEach(client=>{
 
 const number =
 parseInt(
-client.price
-.replace(/[^0-9]/g,"")
+client.price.replace(/[^0-9]/g,"")
 );
 
 total += number;
 
 });
 
-const revenue =
-document.getElementById("client-revenue");
-
-if(revenue){
-
 revenue.textContent =
 formatRevenue(total);
 
 }
-
-}
-
-updateRevenue();
 
 // =========================
 // DELETE CONFIRMATION
