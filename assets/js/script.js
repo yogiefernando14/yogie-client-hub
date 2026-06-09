@@ -1092,6 +1092,8 @@ saveClients();
 
 renderClients();
 
+loadProjectClientOptions();
+
 updateRevenue();
 
 updateDashboardStats();
