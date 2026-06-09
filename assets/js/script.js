@@ -965,6 +965,8 @@ updateRevenue();
 
 updateDashboardStats();
 
+  renderAnalytics();
+
 });
 
 });
@@ -1100,6 +1102,8 @@ loadProjectClientOptions();
 updateRevenue();
 
 updateDashboardStats();
+
+renderAnalytics();
 
 modal.classList.remove("show");
 
@@ -1656,6 +1660,7 @@ renderProjects();
   loadProjectOptions();
 
 updateDashboardStats();
+  renderAnalytics();
 
 });
 
@@ -1846,6 +1851,8 @@ renderProjects();
 loadProjectOptions();
 
 updateDashboardStats();
+
+  renderAnalytics();
 
 projectModal.classList.remove(
 
