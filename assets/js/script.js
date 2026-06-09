@@ -879,6 +879,10 @@ id:Date.now(),
 ...client
 
 });
+addActivity(
+"Client Added",
+`${data.name} added`
+);
 
 saveClients();
 
