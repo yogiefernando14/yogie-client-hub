@@ -1660,6 +1660,8 @@ saveProjects();
 
 renderProjects();
 
+  loadProjectOptions();
+
 updateDashboardStats();
 
 });
