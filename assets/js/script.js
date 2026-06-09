@@ -1205,9 +1205,9 @@ invoices.forEach(invoice=>{
 if(invoice.status === "Paid"){
 
 const value =
-parseInt(
+Number(
 invoice.amount.replace(/[^0-9]/g,"")
-);
+) || 0;
 
 total += value;
 
