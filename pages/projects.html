@@ -108,7 +108,7 @@ Track all ongoing, pending and completed projects.
 Export
 </button>
 
-<button class="header-btn primary">
+<button class="header-btn primary" id="openProjectModal">
 <i class="fa-solid fa-plus"></i>
 Add Project
 </button>
@@ -184,7 +184,7 @@ Finished projects
 <i class="fa-solid fa-magnifying-glass"></i>
 
 <input
-type="text"
+type="text" id="projectSearch"
 placeholder="Search project..."
 >
 
@@ -192,7 +192,7 @@ placeholder="Search project..."
 
 <div class="toolbar-right">
 
-<select class="filter-select">
+<select class="filter-select" id="projectStatusFilter">
 
 <option>All Status</option>
 
