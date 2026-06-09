@@ -1848,6 +1848,8 @@ saveProjects();
 
 renderProjects();
 
+loadProjectOptions();
+
 updateDashboardStats();
 
 projectModal.classList.remove(
