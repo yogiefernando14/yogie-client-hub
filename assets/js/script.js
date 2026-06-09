@@ -2357,6 +2357,36 @@ ${project.name}
 
 loadProjectOptions();
 
+const invoiceProject =
+
+document.getElementById("invoiceProject");
+
+if(invoiceProject){
+
+invoiceProject.addEventListener("change",()=>{
+
+const project =
+
+projects.find(
+
+p=>p.name === invoiceProject.value
+
+);
+
+if(project){
+
+document.getElementById(
+
+"invoiceClient"
+
+).value = project.client;
+
+}
+
+});
+
+}
+
 // =========================
 
 // DELETE INVOICE
