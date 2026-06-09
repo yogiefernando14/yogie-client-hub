@@ -460,25 +460,7 @@ return "Rp " + (value / 1000).toFixed(0) + "K";
 }
 return "Rp " + value.toLocaleString("id-ID");
 }
-// =========================
-// AUTO REVENUE COUNTER
-// =========================
 
-const revenueElement =
-document.getElementById("dashboard-revenue");
-if(revenueElement){
-let value = 0;
-const target = 32000000;
-const interval = setInterval(()=>{
-value += 650000;
-if(value >= target){
-value = target;
-clearInterval(interval)
-}
-revenueElement.textContent = formatRevenue(value);
-},25);
-
-}
 // =========================
 // PAGE LOADER
 // =========================
