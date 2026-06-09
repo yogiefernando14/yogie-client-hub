@@ -894,62 +894,6 @@ renderClients();
 renderClients();
 
 // =========================
-// DEMO DATA
-// =========================
-
-if(clients.length===0){
-
-addClient({
-
-name:"Yogie Store",
-
-email:"client@yogiestore.com",
-
-package:"Business Website",
-
-status:"Active",
-
-price:"Rp 5.000.000",
-
-date:"08 Jun 2026"
-
-});
-
-addClient({
-
-name:"Arkana Digital",
-
-email:"hello@arkana.id",
-
-package:"Landing Page",
-
-status:"Pending",
-
-price:"Rp 1.500.000",
-
-date:"06 Jun 2026"
-
-});
-
-addClient({
-
-name:"PT Prima Jaya",
-
-email:"admin@primajaya.co.id",
-
-package:"E-Commerce",
-
-status:"Completed",
-
-price:"Rp 8.500.000",
-
-date:"03 Jun 2026"
-
-});
-
-}
-
-// =========================
 // ADD CLIENT MODAL
 // =========================
 
@@ -2001,52 +1945,6 @@ projectModal.classList.add(
 });
 
 }
-
-// =========================
-
-// DEMO PROJECTS
-
-// =========================
-
-if(projects.length===0){
-
-projects.push({
-
-id:Date.now(),
-
-name:"Yogie Store",
-
-client:"Yogie Store",
-
-status:"Active",
-
-price:"Rp 5000000",
-
-deadline:"2026-06-15"
-
-});
-
-projects.push({
-
-id:Date.now()+1,
-
-name:"Landing Page Arkana",
-
-client:"Arkana Digital",
-
-status:"Pending",
-
-price:"Rp 1500000",
-
-deadline:"2026-06-20"
-
-});
-
-saveProjects();
-
-}
-
-renderProjects();
 
 // =========================
 // PAYMENT STORAGE
