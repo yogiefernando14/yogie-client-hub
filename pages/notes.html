@@ -1,1 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes</title>
 
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="background-glow">
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+</div>
+
+<div class="grid-bg"></div>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+</div>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<div class="logo">
+<span>YF</span> Client Hub
+</div>
+
+<nav class="nav">
+
+<a href="../index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a>
+
+<a href="clients.html"><i class="fa-solid fa-users"></i><span>Clients</span></a>
+
+<a href="projects.html"><i class="fa-solid fa-folder-open"></i><span>Projects</span></a>
+
+<a href="payments.html"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+
+<a href="files.html"><i class="fa-solid fa-file"></i><span>Files</span></a>
+
+<a href="notes.html" class="active"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a>
+
+<a href="analytics.html"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+
+<a href="settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+
+</nav>
+
+<div class="sidebar-footer">
+
+<div class="mini-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Owner</small>
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="topbarNoteSearch"
+placeholder="Search notes..."
+>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="icon-btn">
+<i class="fa-regular fa-bell"></i>
+</button>
+
+<button class="icon-btn">
+<i class="fa-regular fa-envelope"></i>
+</button>
+
+<div class="topbar-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Administrator</small>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="notes-page">
+
+<div class="page-top">
+
+<div class="page-title-group">
+
+<span class="page-label">
+NOTE MANAGEMENT
+</span>
+
+<h1>Notes</h1>
+
+<p>
+Store ideas, client requirements and project notes.
+</p>
+
+</div>
+
+<div class="page-actions">
+
+<button class="header-btn" id="exportNotesBtn">
+<i class="fa-solid fa-download"></i>
+Export
+</button>
+
+<button class="header-btn primary" id="openNoteModal">
+<i class="fa-solid fa-plus"></i>
+New Note
+</button>
+
+</div>
+
+</div>
+
+<section class="project-stats">
+
+<div class="client-stat-card">
+<span>Total Notes</span>
+<h2 id="notes-total">0</h2>
+<p>All notes</p>
+</div>
+
+<div class="client-stat-card">
+<span>Important</span>
+<h2 id="notes-important">0</h2>
+<p>Priority notes</p>
+</div>
+
+<div class="client-stat-card">
+<span>Clients</span>
+<h2 id="notes-client">0</h2>
+<p>Client notes</p>
+</div>
+
+<div class="client-stat-card">
+<span>Projects</span>
+<h2 id="notes-project">0</h2>
+<p>Project notes</p>
+</div>
+
+</section>
+
+<section class="client-toolbar">
+
+<div class="client-search">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="notesSearch"
+placeholder="Search note..."
+>
+
+</div>
+
+<div class="toolbar-right">
+
+<select class="filter-select" id="notesCategoryFilter">
+
+<option>All Notes</option>
+<option>Client</option>
+<option>Project</option>
+<option>Personal</option>
+<option>Important</option>
+
+</select>
+
+</div>
+
+</section>
+
+<section class="clients-table-wrapper">
+
+<div class="table-header">
+
+<h2>Notes Database</h2>
+
+<div class="table-actions">
+
+<button class="table-action-btn" id="refreshNotesBtn">
+Refresh
+</button>
+
+</div>
+
+</div>
+
+<div class="clients-table-container">
+
+<table class="clients-table">
+
+<thead>
+
+<tr>
+<th>Title</th>
+<th>Category</th>
+<th>Date</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="notesTableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="client-activity-section">
+
+<div class="activity-header">
+<h2>Recent Notes Activity</h2>
+</div>
+
+<div class="activity-list" id="notesActivityList">
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+<h4>Note Created</h4>
+<p>New client requirement added.</p>
+</div>
+
+<span>5m ago</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="clients-empty-state" id="notesEmptyState">
+
+<div class="empty-card">
+
+<i class="fa-solid fa-note-sticky"></i>
+
+<h2>Notes System Ready</h2>
+
+<p>
+Save project ideas, client discussions and personal reminders.
+</p>
+
+<button class="header-btn primary" id="openNoteModal2">
+Create First Note
+</button>
+
+</div>
+
+</section>
+<!-- NOTE MODAL -->
+
+<div class="client-modal" id="noteModal">
+
+<div class="client-modal-content">
+
+<div class="modal-header">
+
+<h2>Create Note</h2>
+
+<button id="closeNoteModal">
+×
+</button>
+
+</div>
+
+<form id="noteForm">
+
+<div class="form-group">
+
+<label>Title</label>
+
+<input
+type="text"
+id="noteTitle"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Category</label>
+
+<select id="noteCategory">
+
+<option>Client</option>
+
+<option>Project</option>
+
+<option>Personal</option>
+
+<option>Important</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Content</label>
+
+<textarea
+id="noteContent"
+rows="8"
+required
+></textarea>
+
+</div>
+
+<button
+type="submit"
+class="header-btn primary"
+style="width:100%;"
+>
+
+Save Note
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- noteModal -->
+
+</div>
+
+<!-- notes-page -->
+
+</main>
+
+<!-- main -->
+
+</div>
+
+<!-- app -->
+
+<script>
+
+const noteModal = document.getElementById("noteModal");
+
+document.getElementById("openNoteModal")?.addEventListener("click", () => {
+  noteModal.classList.add("show");
+});
+
+document.getElementById("openNoteModal2")?.addEventListener("click", () => {
+  noteModal.classList.add("show");
+});
+
+document.getElementById("closeNoteModal")?.addEventListener("click", () => {
+  noteModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === noteModal) {
+    noteModal.classList.remove("show");
+  }
+});
+
+</script>
+
+<script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>
