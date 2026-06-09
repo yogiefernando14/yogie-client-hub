@@ -2886,3 +2886,120 @@ window.addEventListener("load", () => {
 loadFileClientOptions();
 renderFiles();
 });
+
+// =========================
+// NOTES STORAGE
+// =========================
+
+let notes =
+JSON.parse(
+localStorage.getItem("yogie_notes")
+) || [];
+
+function saveNotes(){
+localStorage.setItem(
+"yogie_notes",
+JSON.stringify(notes)
+);
+}
+
+// =========================
+// NOTE STATS
+// =========================
+
+function updateNotesStats(){
+
+document.getElementById("notes-total").textContent =
+notes.length;
+
+document.getElementById("notes-important").textContent =
+notes.filter(
+n => n.category === "Important"
+).length;
+
+document.getElementById("notes-client").textContent =
+notes.filter(
+n => n.category === "Client"
+).length;
+
+document.getElementById("notes-project").textContent =
+notes.filter(
+n => n.category === "Project"
+).length;
+
+}
+
+// =========================
+// NOTE ROW
+// =========================
+
+function createNoteRow(note){
+
+return `
+<tr>
+
+<td>${note.title}</td>
+
+<td>${note.category}</td>
+
+<td>${note.date}</td>
+
+<td>
+<span class="status-badge active">
+Saved
+</span>
+</td>
+
+<td>
+
+<div class="table-buttons">
+
+<button
+class="mini-btn edit-note"
+data-id="${note.id}">
+Edit
+</button>
+
+<button
+class="mini-btn delete-note"
+data-id="${note.id}">
+Delete
+</button>
+
+</div>
+
+</td>
+
+</tr>
+`;
+
+}
+
+// =========================
+// RENDER NOTES
+// =========================
+
+function renderNotes(){
+
+const tbody =
+document.getElementById(
+"notesTableBody"
+);
+
+if(!tbody) return;
+
+tbody.innerHTML = "";
+
+notes.forEach(note=>{
+
+tbody.innerHTML +=
+createNoteRow(note);
+
+});
+
+updateNotesStats();
+
+bindDeleteNote();
+bindEditNote();
+
+}
