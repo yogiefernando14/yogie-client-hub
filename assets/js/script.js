@@ -1834,6 +1834,9 @@ p=>p.id===id
 
 if(!project) return;
   loadProjectClientOptions();
+document.getElementById(
+"projectClient"
+).value = project.client;
 
 editingProjectId = id;
 
