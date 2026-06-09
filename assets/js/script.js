@@ -3499,3 +3499,100 @@ window.addEventListener(
 "load",
 loadSettings
 );
+
+/* =========================
+EXPORT BACKUP JSON
+========================= */
+
+const exportBtn =
+document.getElementById(
+"exportBackupBtn"
+);
+
+if(exportBtn){
+
+exportBtn.addEventListener(
+"click",
+()=>{
+
+const backup = {
+
+settings:
+JSON.parse(
+localStorage.getItem("yogie_settings")
+) || {},
+
+clients:
+JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [],
+
+projects:
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [],
+
+invoices:
+JSON.parse(
+localStorage.getItem("yogie_invoices")
+) || [],
+
+files:
+JSON.parse(
+localStorage.getItem("yogie_files")
+) || [],
+
+notes:
+JSON.parse(
+localStorage.getItem("yogie_notes")
+) || [],
+
+exportDate:
+new Date().toISOString()
+
+};
+
+const blob =
+new Blob(
+[
+JSON.stringify(
+backup,
+null,
+2
+)
+],
+{
+type:"application/json"
+}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const a =
+document.createElement("a");
+
+a.href = url;
+
+a.download =
+`YF-Backup-${
+new Date()
+.toISOString()
+.slice(0,10)
+}.json`;
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+URL.revokeObjectURL(url);
+
+alert(
+"Backup exported successfully"
+);
+
+});
+
+}
