@@ -1240,19 +1240,25 @@ activeCard.textContent = active;
 // =========================
 
 function updateDashboardRevenue(){
-
-const clients = getClients();
+const invoices =
+JSON.parse(
+localStorage.getItem("yogie_invoices")
+) || [];
 
 let total = 0;
 
-clients.forEach(client=>{
+invoices.forEach(invoice=>{
+
+if(invoice.status === "Paid"){
 
 const value =
 parseInt(
-client.price.replace(/[^0-9]/g,"")
+invoice.amount.replace(/[^0-9]/g,"")
 );
 
 total += value;
+
+}
 
 });
 
