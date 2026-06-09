@@ -1100,6 +1100,8 @@ updateDashboardStats();
 
 modal.classList.remove("show");
 
+editingClientId = null;
+
 clientForm.reset();
 
 });
