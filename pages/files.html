@@ -36,7 +36,6 @@
 <a href="payments.html"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
 <a href="files.html" class="active"><i class="fa-solid fa-file"></i><span>Files</span></a>
 <a href="notes.html"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a>
-<a href="analytics.html"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
 <a href="settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
 </nav>
 
@@ -100,7 +99,7 @@ Manage contracts, assets, source code and client documents.
 Export
 </button>
 
-<button class="header-btn primary">
+<button class="header-btn primary" id="openFileModal">
 <i class="fa-solid fa-plus"></i>
 Upload File
 </button>
@@ -293,7 +292,7 @@ Refresh
 <div class="activity-dot"></div>
 <div>
 <h4>File Donwloaded</h4>
-<p>SourceCode.zip donwloaded successfully</p>
+<p>SourceCode.zip downloaded successfully</p>
 </div>
 <span>Yesterday</span>
 </div>
@@ -323,10 +322,10 @@ Upload First File
 </section>
 
 <!-- =========================
-ADD CLIENT MODAL
+UPLOAD FILE MODAL
 ========================= -->
 
-<div class="client-modal" id="clientModal">
+<div class="client-modal" id="fileModal">
 
 <div class="client-modal-content">
 
@@ -334,7 +333,7 @@ ADD CLIENT MODAL
 
 <h2>Upload File</h2>
 
-<button id="closeModal">
+<button id="closeFileModal">
 ×
 </button>
 
