@@ -2409,10 +2409,12 @@ i=>i.id===editingInvoiceId
 invoices[index] = {
 
 ...invoices[index],
-
 ...data
-
 };
+  addActivity(
+"Invoice Updated",
+`${data.client} invoice updated`
+);
 
 editingInvoiceId = null;
 
@@ -2425,6 +2427,11 @@ id:Date.now(),
 ...data
 
 });
+
+  addActivity(
+"Invoice Created",
+`${data.client} invoice Created`
+);
 
 }
 
