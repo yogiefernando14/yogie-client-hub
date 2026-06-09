@@ -2827,6 +2827,7 @@ fileForm.reset();
 /* =========================
 INITIALIZE
 ========================= */
-
+window.addEventListener("load", () => {
 loadFileClientOptions();
 renderFiles();
+});
