@@ -977,17 +977,23 @@ btn.addEventListener("click",()=>{
 const id =
 Number(btn.dataset.id);
 
+const client =
+clients.find(
+c => c.id === id
+);
+
 const confirmDelete =
 confirm(
 "Delete this client permanently?"
 );
 
 if(!confirmDelete) return;
-
-clients =
-clients.filter(
-client=>client.id!==id
+if(client){
+addActivity(
+"Client Deleted",
+`${client.name} removed`
 );
+}
 
 saveClients();
 
