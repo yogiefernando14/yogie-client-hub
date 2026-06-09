@@ -94,7 +94,7 @@ Manage contracts, assets, source code and client documents.
 
 <div class="page-actions">
 
-<button class="header-btn">
+<button class="header-btn" id="exportFilesBtn">
 <i class="fa-solid fa-download"></i>
 Export
 </button>
@@ -172,12 +172,12 @@ Upload File
 
 <div class="table-actions">
 
-<button class="table-action-btn">
+<button class="table-action-btn" id="filterFilesBtn">
 <i class="fa-solid fa-filter"></i>
 Filter
 </button>
 
-<button class="table-action-btn">
+<button class="table-action-btn" id="refreshFilesBtn">
 <i class="fa-solid fa-rotate"></i>
 Refresh
 </button>
@@ -217,7 +217,7 @@ Refresh
 <h2>Recent File Activity</h2>
 </div>
 
-<div class="activity-list">
+<div class="activity-list id="fileActivityList"">
 
 <div class="activity-item">
 <div class="activity-dot"></div>
