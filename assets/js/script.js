@@ -2608,50 +2608,6 @@ invoiceModal.classList.add(
 
 // =========================
 
-// DEMO INVOICES
-
-// =========================
-
-if(invoices.length===0){
-
-invoices.push({
-
-id:1,
-
-invoice:"INV-001",
-
-client:"Yogie Store",
-
-amount:"Rp 5000000",
-
-status:"Paid",
-
-dueDate:"2026-06-15"
-
-});
-
-invoices.push({
-
-id:2,
-
-invoice:"INV-002",
-
-client:"Arkana Digital",
-
-amount:"Rp 1500000",
-
-status:"Pending",
-
-dueDate:"2026-06-20"
-
-});
-
-saveInvoices();
-
-}
-
-// =========================
-
 // INITIALIZE
 
 // =========================
