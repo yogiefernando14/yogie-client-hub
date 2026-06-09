@@ -2277,52 +2277,26 @@ e.preventDefault();
 const data = {
 
 invoice:
-
 "INV-" +
-
-String(
-
-Date.now()
-
-).slice(-4),
+String(Date.now()).slice(-4),
 
 client:
+document.getElementById("invoiceClient").value,
 
-document.getElementById(
-
-"invoiceClient"
-
-).value,
+project:
+document.getElementById("invoiceProject").value,
 
 amount:
-
 "Rp " +
-
 Number(
-
-document.getElementById(
-
-"invoiceAmount"
-
-).value
-
+document.getElementById("invoiceAmount").value
 ).toLocaleString("id-ID"),
 
 status:
-
-document.getElementById(
-
-"invoiceStatus"
-
-).value,
+document.getElementById("invoiceStatus").value,
 
 dueDate:
-
-document.getElementById(
-
-"invoiceDueDate"
-
-).value
+document.getElementById("invoiceDueDate").value
 
 };
 
