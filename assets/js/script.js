@@ -832,6 +832,7 @@ createClientRow(client);
 });
 
 updateClientStats();
+  loadProjectClientOptions();
 
 }
 
