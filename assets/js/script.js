@@ -3373,3 +3373,64 @@ window.addEventListener(
 "load",
 renderAnalytics
 );
+
+/* =========================
+SETTINGS STORAGE
+========================= */
+
+let settings =
+JSON.parse(
+localStorage.getItem("yogie_settings")
+) || {
+
+ownerName: "Yogie Fernando",
+businessName: "YF Client Hub",
+email: "",
+phone: "",
+theme: "Dark",
+currency: "IDR",
+dateFormat: "DD/MM/YYYY"
+
+};
+
+function saveSettings(){
+
+localStorage.setItem(
+"yogie_settings",
+JSON.stringify(settings)
+);
+
+}
+
+function loadSettings(){
+
+const owner =
+document.getElementById("settingsOwnerName");
+
+const business =
+document.getElementById("settingsBusinessName");
+
+const email =
+document.getElementById("settingsEmail");
+
+const phone =
+document.getElementById("settingsPhone");
+
+const theme =
+document.getElementById("settingsTheme");
+
+const currency =
+document.getElementById("settingsCurrency");
+
+const dateFormat =
+document.getElementById("settingsDateFormat");
+
+if(owner) owner.value = settings.ownerName;
+if(business) business.value = settings.businessName;
+if(email) email.value = settings.email;
+if(phone) phone.value = settings.phone;
+if(theme) theme.value = settings.theme;
+if(currency) currency.value = settings.currency;
+if(dateFormat) dateFormat.value = settings.dateFormat;
+
+}
