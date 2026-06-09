@@ -2313,8 +2313,9 @@ e.preventDefault();
 const data = {
 
 invoice:
-"INV-" +
-String(Date.now()).slice(-4),
+editingInvoiceId
+? invoices.find(i => i.id === editingInvoiceId).invoice
+: "INV-" + String(Date.now()).slice(-4),
 
 client:
 document.getElementById("invoiceClient").value,
