@@ -1905,7 +1905,8 @@ JSON.parse(
 localStorage.getItem("yogie_clients")
 ) || [];
 
-select.innerHTML = "";
+select.innerHTML =
+'<option value="">Select Client</option>';
 
 clients.forEach(client=>{
 
