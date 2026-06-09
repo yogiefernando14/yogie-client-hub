@@ -3210,3 +3210,159 @@ text.includes(value)
 // =========================
 
 renderNotes();
+
+/* =========================
+ANALYTICS
+========================= */
+
+function renderAnalytics(){
+
+const clients =
+JSON.parse(
+localStorage.getItem("yogie_clients")
+) || [];
+
+const projects =
+JSON.parse(
+localStorage.getItem("yogie_projects")
+) || [];
+
+const invoices =
+JSON.parse(
+localStorage.getItem("yogie_invoices")
+) || [];
+
+let revenue = 0;
+
+invoices.forEach(invoice=>{
+
+if(invoice.status === "Paid"){
+
+revenue += Number(
+invoice.amount.replace(/[^0-9]/g,"")
+) || 0;
+
+}
+
+});
+
+const totalRevenue =
+document.getElementById(
+"analytics-totalRevenue"
+);
+
+const totalClients =
+document.getElementById(
+"analytics-totalClients"
+);
+
+const totalProjects =
+document.getElementById(
+"analytics-totalProjects"
+);
+
+const totalInvoices =
+document.getElementById(
+"analytics-totalInvoices"
+);
+
+if(totalRevenue)
+totalRevenue.textContent =
+formatRevenue(revenue);
+
+if(totalClients)
+totalClients.textContent =
+clients.length;
+
+if(totalProjects)
+totalProjects.textContent =
+projects.length;
+
+if(totalInvoices)
+totalInvoices.textContent =
+invoices.length;
+
+/* TABLE SUMMARY */
+
+const summary =
+document.getElementById(
+"analyticsTableBody"
+);
+
+if(summary){
+
+summary.innerHTML = `
+
+<tr>
+<td>Total Revenue</td>
+<td>${formatRevenue(revenue)}</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Clients</td>
+<td>${clients.length}</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Projects</td>
+<td>${projects.length}</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Invoices</td>
+<td>${invoices.length}</td>
+<td>Tracking</td>
+</tr>
+
+`;
+
+}
+
+/* PERFORMANCE TABLE */
+
+const performance =
+document.getElementById(
+"analyticsPerformanceBody"
+);
+
+if(performance){
+
+performance.innerHTML = `
+
+<tr>
+<td>Revenue</td>
+<td>${formatRevenue(revenue)}</td>
+<td>100%</td>
+</tr>
+
+<tr>
+<td>Clients</td>
+<td>${clients.length}</td>
+<td>100%</td>
+</tr>
+
+<tr>
+<td>Projects</td>
+<td>${projects.length}</td>
+<td>100%</td>
+</tr>
+
+<tr>
+<td>Invoices</td>
+<td>${invoices.length}</td>
+<td>100%</td>
+</tr>
+
+`;
+
+}
+
+}
+
+window.addEventListener(
+"load",
+renderAnalytics
+);
