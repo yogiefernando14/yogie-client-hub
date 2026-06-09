@@ -901,56 +901,6 @@ modal.classList.remove("show");
 }
 
 // =========================
-// CLIENT FORM
-// =========================
-
-const clientForm =
-document.getElementById("clientForm");
-
-if(clientForm){
-
-clientForm.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-const price =
-Number(
-document.getElementById("clientPrice").value
-);
-
-addClient({
-
-name:
-document.getElementById("clientName").value,
-
-email:
-document.getElementById("clientEmail").value,
-
-package:
-document.getElementById("clientPackage").value,
-
-status:
-document.getElementById("clientStatus").value,
-
-price:
-"Rp " + price.toLocaleString("id-ID"),
-
-date:
-new Date().toLocaleDateString("id-ID")
-
-});
-
-updateRevenue();
-
-modal.classList.remove("show");
-
-clientForm.reset();
-
-});
-
-}
-
-// =========================
 // AUTO REVENUE
 // =========================
 
