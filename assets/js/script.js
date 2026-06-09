@@ -2901,6 +2901,10 @@ document.getElementById(
 if(!uploaded) return;
 
 files.push({
+addActivity(
+"File Uploaded",
+`${document.getElementById("fileName").value}`
+);
 
 id: Date.now(),
 
