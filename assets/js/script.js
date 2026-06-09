@@ -3204,3 +3204,9 @@ text.includes(value)
 });
 
 }
+
+// =========================
+// INITIALIZE NOTES
+// =========================
+
+renderNotes();
