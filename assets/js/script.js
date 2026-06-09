@@ -2692,3 +2692,21 @@ saveInvoices();
 // =========================
 
 renderInvoices();
+
+document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+
+        const href = this.href;
+
+        if (!href) return;
+
+        e.preventDefault();
+
+        document.body.classList.add('page-exit');
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 250);
+
+    });
+});
