@@ -1833,6 +1833,7 @@ p=>p.id===id
 );
 
 if(!project) return;
+  loadProjectClientOptions();
 
 editingProjectId = id;
 
