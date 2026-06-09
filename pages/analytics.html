@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analytics</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="background-glow">
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+</div>
+
+<div class="grid-bg"></div>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+</div>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<div class="logo">
+<span>YF</span> Client Hub
+</div>
+
+<nav class="nav">
+
+<a href="../index.html">
+<i class="fa-solid fa-table-columns"></i>
+<span>Dashboard</span>
+</a>
+
+<a href="clients.html">
+<i class="fa-solid fa-users"></i>
+<span>Clients</span>
+</a>
+
+<a href="projects.html">
+<i class="fa-solid fa-folder-open"></i>
+<span>Projects</span>
+</a>
+
+<a href="payments.html">
+<i class="fa-solid fa-credit-card"></i>
+<span>Payments</span>
+</a>
+
+<a href="files.html">
+<i class="fa-solid fa-file"></i>
+<span>Files</span>
+</a>
+
+<a href="notes.html">
+<i class="fa-solid fa-note-sticky"></i>
+<span>Notes</span>
+</a>
+
+<a href="analytics.html" class="active">
+<i class="fa-solid fa-chart-line"></i>
+<span>Analytics</span>
+</a>
+
+<a href="settings.html">
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</a>
+
+</nav>
+
+<div class="sidebar-footer">
+
+<div class="mini-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Owner</small>
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="topbarAnalyticsSearch"
+placeholder="Search analytics..."
+>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="icon-btn">
+<i class="fa-regular fa-bell"></i>
+</button>
+
+<button class="icon-btn">
+<i class="fa-regular fa-envelope"></i>
+</button>
+
+<div class="topbar-profile">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Yogie Fernando</strong>
+<small>Administrator</small>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="analytics-page">
+
+<div class="page-top">
+
+<div class="page-title-group">
+
+<span class="page-label">
+BUSINESS ANALYTICS
+</span>
+
+<h1>Analytics</h1>
+
+<p>
+Track business performance, revenue growth and project statistics.
+</p>
+
+</div>
+
+<div class="page-actions">
+
+<button class="header-btn" id="exportAnalyticsBtn">
+
+<i class="fa-solid fa-download"></i>
+
+Export Report
+
+</button>
+
+</div>
+
+</div>
+
+<section class="project-stats">
+
+<div class="client-stat-card">
+
+<span>Total Revenue</span>
+
+<h2 id="analytics-totalRevenue">
+0
+</h2>
+
+<p>
+Agency earnings
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Total Clients</span>
+
+<h2 id="analytics-totalClients">
+0
+</h2>
+
+<p>
+Registered clients
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Total Projects</span>
+
+<h2 id="analytics-totalProjects">
+0
+</h2>
+
+<p>
+Projects handled
+</p>
+
+</div>
+
+<div class="client-stat-card">
+
+<span>Total Invoices</span>
+
+<h2 id="analytics-totalInvoices">
+0
+</h2>
+
+<p>
+Generated invoices
+</p>
+
+</div>
+
+</section>
+
+<section class="clients-table-wrapper">
+
+<div class="table-header">
+
+<h2>Business Summary</h2>
+
+<div class="table-actions">
+
+<button class="table-action-btn" id="refreshAnalyticsBtn">
+Refresh
+</button>
+
+</div>
+
+</div>
+
+<div class="clients-table-container">
+
+<table class="clients-table">
+
+<thead>
+
+<tr>
+
+<th>Metric</th>
+<th>Value</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="analyticsTableBody">
+
+<tr>
+<td>Total Revenue</td>
+<td>Rp 0</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Clients</td>
+<td>0</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Projects</td>
+<td>0</td>
+<td>Tracking</td>
+</tr>
+
+<tr>
+<td>Total Invoices</td>
+<td>0</td>
+<td>Tracking</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="clients-table-wrapper">
+
+<div class="table-header">
+
+<h2>Performance Overview</h2>
+
+</div>
+
+<div class="clients-table-container">
+
+<table class="clients-table">
+
+<thead>
+
+<tr>
+
+<th>Category</th>
+<th>Current</th>
+<th>Growth</th>
+
+</tr>
+
+</thead>
+
+<tbody id="analyticsPerformanceBody">
+
+<tr>
+<td>Revenue</td>
+<td>Rp 0</td>
+<td>0%</td>
+</tr>
+
+<tr>
+<td>Clients</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+
+<tr>
+<td>Projects</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+
+<tr>
+<td>Invoices</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="client-activity-section">
+
+<div class="activity-header">
+
+<h2>Recent Analytics Activity</h2>
+
+</div>
+
+<div class="activity-list" id="analyticsActivityList">
+  <div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Revenue Updated</h4>
+
+<p>Total revenue statistics refreshed.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Client Growth</h4>
+
+<p>Client database analytics updated.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Project Performance</h4>
+
+<p>Project completion metrics recalculated.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+<div class="activity-item">
+
+<div class="activity-dot"></div>
+
+<div>
+
+<h4>Invoice Summary</h4>
+
+<p>Invoice statistics synchronized.</p>
+
+</div>
+
+<span>Today</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="clients-empty-state" id="analyticsEmptyState">
+
+<div class="empty-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h2>Analytics Ready</h2>
+
+<p>
+
+Analytics data will automatically sync from Clients, Projects and Payments.
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+<!-- analytics-page -->
+
+</main>
+
+<!-- main -->
+
+</div>
+
+<!-- app -->
+
+<script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>
