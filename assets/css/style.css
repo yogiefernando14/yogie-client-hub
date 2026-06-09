@@ -1461,3 +1461,12 @@ background:rgba(255,255,255,.03);
 color:white;
 outline:none;
 }
+
+body{
+    opacity:1;
+    transition:opacity .25s ease;
+
+}
+body.page-exit{
+    opacity:0;
+}
