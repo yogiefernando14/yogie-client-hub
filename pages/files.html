@@ -388,8 +388,32 @@ Upload File
 
 </div>
 
-<script src="../assets/js/script.js"></script>
+<script>
 
+const fileModal = document.getElementById("fileModal");
+
+document.getElementById("openFileModal")?.addEventListener("click", () => {
+  fileModal.classList.add("show");
+});
+
+document.getElementById("openFileModal2")?.addEventListener("click", () => {
+  fileModal.classList.add("show");
+});
+
+document.getElementById("closeFileModal")?.addEventListener("click", () => {
+  fileModal.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === fileModal) {
+    fileModal.classList.remove("show");
+  }
+});
+
+</script>
+
+<script src="../assets/js/script.js"></script>
+  
 </body>
 
 </html>
