@@ -122,7 +122,7 @@ Private workspace for managing website orders, payments, files, revisions, clien
 
 <div class="stat-card">
 <span>Total Projects</span>
-<h2 id="dashboard-total-projects">24</h2>
+<h2 id="dashboard-total-projects">0</h2>
 </div>
 
 <div class="stat-card">
@@ -174,12 +174,7 @@ Revenue Chart
 <h2>Recent Activity</h2>
 </div>
 
-<ul class="activity-list">
-<li><span class="activity-dot"></span>New client inquiry received</li>
-<li><span class="activity-dot"></span>Payment confirmed from HireFlow project</li>
-<li><span class="activity-dot"></span>YOGIEZ Store marked as completed</li>
-<li><span class="activity-dot"></span>Revision request uploaded</li>
-<li><span class="activity-dot"></span>Domain renewal reminder created</li>
+<ul class="activity-list" id="recent-activity-list">
 </ul>
 
 </div>
@@ -207,47 +202,7 @@ Revenue Chart
 </tr>
 </thead>
 
-<tbody>
-
-<tr>
-<td>HireFlow</td>
-<td>Demo Client</td>
-<td><span class="status development">Development</span></td>
-<td>80%</td>
-<td>Rp2.500.000</td>
-</tr>
-
-<tr>
-<td>YOGIEZ Store</td>
-<td>Demo Client</td>
-<td><span class="status completed">Completed</span></td>
-<td>100%</td>
-<td>Rp3.000.000</td>
-</tr>
-
-<tr>
-<td>School Website</td>
-<td>Demo Client</td>
-<td><span class="status revision">Revision</span></td>
-<td>95%</td>
-<td>Rp4.500.000</td>
-</tr>
-
-<tr>
-<td>Portfolio Website</td>
-<td>Demo Client</td>
-<td><span class="status pending">Pending</span></td>
-<td>20%</td>
-<td>Rp1.500.000</td>
-</tr>
-
-<tr>
-<td>Booking System</td>
-<td>Demo Client</td>
-<td><span class="status development">Development</span></td>
-<td>60%</td>
-<td>Rp7.000.000</td>
-</tr>
+<tbody id="recent-projects-body">
 
 </tbody>
 
@@ -293,32 +248,9 @@ Revenue Chart
 <h2>Top Clients</h2>
 </div>
 
-<div class="client-cards">
-
-<div class="client-card">
-<div class="client-avatar">HF</div>
-<div>
-<h3>HireFlow</h3>
-<p>2 Active Projects</p>
-</div>
-</div>
-
-<div class="client-card">
-<div class="client-avatar">YG</div>
-<div>
-<h3>YOGIEZ</h3>
-<p>Completed Project</p>
-</div>
-</div>
-
-<div class="client-card">
-<div class="client-avatar">SW</div>
-<div>
-<h3>School Web</h3>
-<p>Revision Stage</p>
-</div>
-</div>
-
+<div
+class="client-cards"
+id="top-clients">
 </div>
 
 </section>
