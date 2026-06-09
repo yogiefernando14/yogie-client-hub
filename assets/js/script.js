@@ -2493,6 +2493,8 @@ if(!invoice) return;
 
 editingInvoiceId = id;
 
+  loadProjectOptions();
+
 document.getElementById(
 
 "invoiceClient"
