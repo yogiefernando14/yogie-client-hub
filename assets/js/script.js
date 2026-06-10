@@ -1436,8 +1436,6 @@ ${client.name.charAt(0)}
 });
 }
 
-updateDashboardStats();
-renderTopClients();
 window.addEventListener(
 "storage",
 updateDashboardStats
@@ -3844,3 +3842,27 @@ alert(
 reader.readAsText(file);
 });
 }
+
+/* =========================
+APP INITIALIZATION
+========================= */
+
+window.addEventListener("load", () => {
+
+updateDashboardStats();
+
+renderTopClients();
+
+loadProjectClientOptions();
+
+loadProjectOptions();
+
+renderClients();
+
+renderProjects();
+
+renderInvoices();
+
+renderAnalytics();
+
+});
