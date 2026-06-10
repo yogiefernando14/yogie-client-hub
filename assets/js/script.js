@@ -1160,6 +1160,10 @@ clients[index] = {
 ...data
 
 };
+addActivity(
+"Client Updated",
+`${data.name} updated`
+);
 
 editingClientId = null;
 
