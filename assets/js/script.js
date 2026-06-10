@@ -3206,9 +3206,22 @@ btn.addEventListener("click",()=>{
 const id =
 Number(btn.dataset.id);
 
+const note =
+notes.find(
+n=>n.id===id
+);
+
 if(
 !confirm("Delete note?")
 ) return;
+
+if(note){
+addActivity(
+"Note Deleted",
+note.title
+);
+
+}
 
 notes =
 notes.filter(
