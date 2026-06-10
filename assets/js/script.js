@@ -1197,6 +1197,10 @@ updateRevenue();
 
 updateDashboardStats();
 
+renderTopClients();
+
+updateFooterStats();
+
 renderAnalytics();
 
 modal.classList.remove("show");
