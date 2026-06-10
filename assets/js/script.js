@@ -1910,6 +1910,10 @@ projects[index] = {
 ...data
 
 };
+addActivity(
+"Project Updated",
+`${data.name} updated`
+);
 
 editingProjectId = null;
 
