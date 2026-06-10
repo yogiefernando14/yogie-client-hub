@@ -1039,15 +1039,17 @@ addActivity(
 
 saveClients();
 
-  loadProjectClientOptions();
+loadProjectClientOptions();
 
 renderClients();
+
+renderTopClients();
 
 updateRevenue();
 
 updateDashboardStats();
 
-  renderAnalytics();
+renderAnalytics();
 
 });
 
