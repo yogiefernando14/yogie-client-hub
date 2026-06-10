@@ -3669,3 +3669,100 @@ alert(
 });
 
 }
+
+/* =========================
+IMPORT BACKUP JSON
+========================= */
+
+const importBtn =
+document.getElementById(
+"importBackupBtn"
+);
+const importInput =
+document.getElementById(
+"importBackupInput"
+);
+if(importBtn && importInput){
+importBtn.addEventListener(
+"click",
+()=>{
+importInput.click();
+});
+}
+if(importInput){
+importInput.addEventListener(
+"change",
+(e)=>{
+const file =
+e.target.files[0];
+if(!file) return;
+const reader =
+new FileReader();
+reader.onload =
+(event)=>{
+try{
+const backup =
+JSON.parse(
+event.target.result
+);
+if(backup.settings){
+localStorage.setItem(
+"yogie_settings",
+JSON.stringify(
+backup.settings
+)
+);
+}
+if(backup.clients){
+localStorage.setItem(
+"yogie_clients",
+JSON.stringify(
+backup.clients
+)
+);
+}
+if(backup.projects){
+localStorage.setItem(
+"yogie_projects",
+JSON.stringify(
+backup.projects
+)
+);
+}
+if(backup.invoices){
+localStorage.setItem(
+"yogie_invoices",
+JSON.stringify(
+backup.invoices
+)
+);
+}
+if(backup.files){
+localStorage.setItem(
+"yogie_files",
+JSON.stringify(
+backup.files
+)
+);
+}
+if(backup.notes){
+localStorage.setItem(
+"yogie_notes",
+JSON.stringify(
+backup.notes
+)
+);
+}
+alert(
+"Backup imported successfully"
+);
+location.reload();
+}catch(error){
+alert(
+"Invalid backup file"
+);
+}
+};
+reader.readAsText(file);
+});
+}
