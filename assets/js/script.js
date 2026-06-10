@@ -1433,6 +1433,7 @@ ${client.name.charAt(0)}
 }
 
 updateDashboardStats();
+renderTopClients();
 window.addEventListener(
 "storage",
 updateDashboardStats
