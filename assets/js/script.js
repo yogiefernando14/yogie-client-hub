@@ -2937,36 +2937,27 @@ document.getElementById(
 
 if(!uploaded) return;
 
-files.push({
 addActivity(
 "File Uploaded",
-`${document.getElementById("fileName").value}`
+document.getElementById("fileName").value
 );
 
+files.push({
 id: Date.now(),
 
 name:
-document.getElementById(
-"fileName"
-).value,
+document.getElementById("fileName").value,
 
 client:
-document.getElementById(
-"fileClient"
-).value,
+document.getElementById("fileClient").value,
 
 type:
-document.getElementById(
-"fileType"
-).value,
+document.getElementById("fileType").value,
 
 size:
 uploaded.size,
-
 date:
-new Date()
-.toLocaleDateString("id-ID")
-
+new Date().toLocaleDateString("id-ID")
 });
 
 saveFiles();
