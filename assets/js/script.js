@@ -899,7 +899,10 @@ createClientRow(client);
 });
 
 updateClientStats();
-  loadProjectClientOptions();
+loadProjectClientOptions();
+loadProjectOptions();
+updateDashboardStats();
+renderTopClients();
 
 }
 
