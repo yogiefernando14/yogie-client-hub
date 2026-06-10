@@ -918,7 +918,7 @@ id:Date.now(),
 });
 addActivity(
 "Client Added",
-`${data.name} added`
+`${client.name} added`
 );
 
 saveClients();
