@@ -2894,33 +2894,29 @@ DELETE FILE
 ========================= */
 
 function bindDeleteFiles(){
-
-document
-.querySelectorAll(".delete-file")
-.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const id =
-Number(btn.dataset.id);
+const file =
+files.find(
+f=>f.id===id
+);
 
 if(
 !confirm("Delete file?")
 ) return;
+
+if(file){
+
+addActivity(
+"File Deleted",
+file.name
+);
+
+}
 
 files =
 files.filter(
 file=>file.id!==id
 );
 
-saveFiles();
-renderFiles();
-
-});
-
-});
-
-}
 
 /* =========================
 UPLOAD FILE
