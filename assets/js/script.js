@@ -3155,6 +3155,11 @@ notes[index] = {
 
 };
 
+addActivity(
+"Note Updated",
+data.title
+);
+
 editingNoteId = null;
 
 }else{
@@ -3165,6 +3170,11 @@ id:Date.now(),
 ...data
 
 });
+addActivity(
+"Note Created",
+data.title
+);
+
 
 }
 
