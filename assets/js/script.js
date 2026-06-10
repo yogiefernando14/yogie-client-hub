@@ -1055,6 +1055,10 @@ updateDashboardStats();
 
 renderTopClients();
 
+updateFooterStats();
+
+renderAnalytics();
+
 });
 
 });
