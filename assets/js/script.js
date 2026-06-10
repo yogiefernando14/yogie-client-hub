@@ -3888,20 +3888,36 @@ APP INITIALIZATION
 
 window.addEventListener("load", () => {
 
+if(typeof updateDashboardStats === "function"){
 updateDashboardStats();
+}
 
+if(typeof renderTopClients === "function"){
 renderTopClients();
+}
 
+if(typeof loadProjectClientOptions === "function"){
 loadProjectClientOptions();
+}
 
+if(typeof loadProjectOptions === "function"){
 loadProjectOptions();
+}
 
+if(document.getElementById("clientsTableBody")){
 renderClients();
+}
 
+if(document.getElementById("projectsTableBody")){
 renderProjects();
+}
 
+if(document.getElementById("paymentsTableBody")){
 renderInvoices();
+}
 
+if(document.getElementById("analytics-totalRevenue")){
 renderAnalytics();
+}
 
 });
