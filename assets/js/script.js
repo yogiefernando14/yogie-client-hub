@@ -711,6 +711,43 @@ if(activityLog.length > 100){
 activityLog.length = 100;
 }
 saveActivity();
+renderRecentActivity();
+}
+
+function renderRecentActivity(){
+const list =
+document.getElementById(
+"recent-activity-list"
+);
+if(!list) return;
+list.innerHTML = "";
+if(activityLog.length === 0){
+list.innerHTML = `
+<li class="activity-item">
+No activity yet
+</li>
+`;
+return;
+}
+activityLog
+.slice(0,8)
+.forEach(activity=>{
+list.innerHTML += `
+<li class="activity-item">
+<div>
+<strong>
+${activity.title}
+</strong>
+<p>
+${activity.description}
+</p>
+</div>
+<span>
+${activity.time}
+</span>
+</li>
+`;
+});
 }
 
 // =========================
@@ -3590,27 +3627,21 @@ projects:
 JSON.parse(
 localStorage.getItem("yogie_projects")
 ) || [],
-
 invoices:
 JSON.parse(
 localStorage.getItem("yogie_invoices")
 ) || [],
-
 files:
 JSON.parse(
 localStorage.getItem("yogie_files")
 ) || [],
-
 notes:
 JSON.parse(
 localStorage.getItem("yogie_notes")
 ) || [],
-
 exportDate:
 new Date().toISOString()
-
 };
-
 const blob =
 new Blob(
 [
@@ -3624,15 +3655,11 @@ null,
 type:"application/json"
 }
 );
-
 const url =
 URL.createObjectURL(blob);
-
 const a =
 document.createElement("a");
-
 a.href = url;
-
 a.download =
 `YF-Backup-${
 new Date()
@@ -3641,13 +3668,9 @@ new Date()
 }.json`;
 
 document.body.appendChild(a);
-
 a.click();
-
 a.remove();
-
 URL.revokeObjectURL(url);
-
 alert(
 "Backup exported successfully"
 );
