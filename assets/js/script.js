@@ -925,6 +925,12 @@ saveClients();
 
 renderClients();
 
+loadProjectClientOptions();
+
+updateDashboardStats();
+
+renderTopClients();
+
 }
 
 // =========================
