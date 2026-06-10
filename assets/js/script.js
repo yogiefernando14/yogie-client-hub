@@ -1183,6 +1183,8 @@ saveClients();
 
 renderClients();
 
+renderTopClients();
+
 loadProjectClientOptions();
 
 updateRevenue();
