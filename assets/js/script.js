@@ -1025,6 +1025,11 @@ confirm(
 );
 
 if(!confirmDelete) return;
+clients =
+clients.filter(
+client => client.id !== id
+);
+
 if(client){
 addActivity(
 "Client Deleted",
