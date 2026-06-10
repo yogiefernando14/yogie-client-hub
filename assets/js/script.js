@@ -1393,6 +1393,45 @@ updateDashboardProjects();
 updateFooterStats();
 }
 
+function renderTopClients(){
+
+const container =
+document.getElementById(
+"top-clients"
+);
+if(!container) return;
+const clients =
+JSON.parse(
+localStorage.getItem(
+"yogie_clients"
+)
+) || [];
+container.innerHTML = "";
+if(clients.length === 0){
+container.innerHTML = `
+<div class="client-card">
+<h3>No Clients Yet</h3>
+<p>Add your first client.</p>
+</div>
+`;
+return;
+}
+clients
+.slice(0,4)
+.forEach(client=>{
+container.innerHTML += `
+<div class="client-card">
+<div class="client-avatar">
+${client.name.charAt(0)}
+</div>
+<h3>${client.name}</h3>
+<p>${client.package}</p>
+<span>${client.status}</span>
+</div>
+`;
+});
+}
+
 updateDashboardStats();
 window.addEventListener(
 "storage",
