@@ -1704,35 +1704,34 @@ bindProjectEdit();
 // =========================
 
 function bindProjectDelete(){
-
 document
-
 .querySelectorAll(".delete-project")
-
 .forEach(btn=>{
-
 btn.addEventListener("click",()=>{
-
 const id =
-
 Number(btn.dataset.id);
 
-if(
-
-!confirm(
-
+if( !confirm(
 "Delete this project?"
-
 )
-
 ) return;
 
+const project =
+projects.find(
+p=>p.id===id
+);
+
+if(project){
+
+addActivity(
+"Project Deleted",
+`${project.name} removed`
+);
+}
+
 projects =
-
 projects.filter(
-
 p=>p.id!==id
-
 );
 
 saveProjects();
