@@ -2124,8 +2124,10 @@ ${client.name}
 });
 
 }
-
+window.addEventListener("load", () => {
 loadProjectClientOptions();
+
+});
 
 // =========================
 // PAYMENT STORAGE
