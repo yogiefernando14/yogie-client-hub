@@ -1049,13 +1049,11 @@ loadProjectClientOptions();
 
 renderClients();
 
-renderTopClients();
-
 updateRevenue();
 
 updateDashboardStats();
 
-renderAnalytics();
+renderTopClients();
 
 });
 
