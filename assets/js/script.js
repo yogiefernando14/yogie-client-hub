@@ -1196,6 +1196,7 @@ renderClients();
 renderTopClients();
 
 loadProjectClientOptions();
+loadProjectOptions()
 
 updateRevenue();
 
